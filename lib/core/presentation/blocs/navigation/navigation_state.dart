@@ -2,7 +2,7 @@ part of 'navigation_cubit.dart';
 
 enum NavbarItem {
   home,
-  movies,
+  apod,
   favorites,
 }
 
@@ -11,7 +11,7 @@ extension NavbarItemX on NavbarItem {
     switch (this) {
       case NavbarItem.home:
         return 0;
-      case NavbarItem.movies:
+      case NavbarItem.apod:
         return 1;
       case NavbarItem.favorites:
         return 2;

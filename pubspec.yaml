@@ -69,6 +69,7 @@ flutter:
   assets:
     - assets/cfg/app_settings.json
     - assets/vectors/
+    - assets/images/nasa-logo.png
 
   # Generate i10n class
   generate: true

@@ -21,9 +21,9 @@ void main() {
   blocTest<NavigationCubit, NavigationState>(
     'Navigate to "movies"',
     build: () => navigationCubit,
-    act: (cubit) => cubit.getNavBarItem(NavbarItem.movies),
+    act: (cubit) => cubit.getNavBarItem(NavbarItem.apod),
     expect: () => [
-      const NavigationState(NavbarItem.movies),
+      const NavigationState(NavbarItem.apod),
     ],
   );
 
@@ -50,7 +50,7 @@ void main() {
     build: () => navigationCubit,
     act: (cubit) => cubit.getNavBarItemFromIndex(1),
     expect: () => [
-      const NavigationState(NavbarItem.movies),
+      const NavigationState(NavbarItem.apod),
     ],
   );
 

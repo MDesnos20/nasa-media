@@ -6,17 +6,16 @@ import 'package:path_provider/path_provider.dart';
 
 import '../core/network/network_info.dart';
 import '../core/presentation/blocs/navigation/navigation_cubit.dart';
-import '../features/movies/data/datasources/movie_remote_data_source.dart';
-import '../features/movies/data/models/movie_model.dart';
-import '../features/movies/data/repositories/movies_repository_impl.dart';
-import '../features/movies/domain/repositories/movies_repository.dart';
-import '../features/movies/domain/usecases/get_movie_by_id_usecase.dart';
-import '../features/movies/domain/usecases/get_movies_by_page_usecase.dart';
-import '../features/movies/presentation/blocs/detail/movie_cubit.dart';
-import '../features/movies/presentation/blocs/list/movie_list_cubit.dart';
+import '../features/apod/data/datasources/apod_remote_data_source.dart';
+import '../features/apod/data/models/apod_model.dart';
+import '../features/apod/data/repositories/apod_repository_impl.dart';
+import '../features/apod/domain/repositories/apod_repository.dart';
+import '../features/apod/domain/usecases/get_apod_media_usecase.dart';
+import '../features/apod/presentation/blocs/detail/apod_cubit.dart';
+import '../features/apod/presentation/blocs/list/apod_list_cubit.dart';
 import 'di_ext.dart';
 
-part '../features/movies/common/movie_injection.dart';
+part '../features/apod/common/movie_injection.dart';
 
 final GetIt sl = GetIt.instance;
 final Dio dio = Dio();

@@ -19,7 +19,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
       builder: (context, state) {
         return BottomNavigationBar(
           currentIndex: state.index,
-          backgroundColor: AppColors.mineralGreen,
+          backgroundColor: Color.fromARGB(255, 0, 0, 0),
           selectedItemColor: AppColors.cararra,
           items: [
             BottomNavigationBarItem(
@@ -28,8 +28,8 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               label: context.translate().bottomNavBarHome,
             ),
             BottomNavigationBarItem(
-              activeIcon: _icon(Icons.movie, AppColors.cararra),
-              icon: _icon(Icons.movie, AppColors.edward),
+              activeIcon: _icon(Icons.grid_view, AppColors.cararra),
+              icon: _icon(Icons.grid_view, Color.fromARGB(255, 202, 204, 204)),
               label: context.translate().bottomNavBarMovies,
             ),
             BottomNavigationBarItem(
