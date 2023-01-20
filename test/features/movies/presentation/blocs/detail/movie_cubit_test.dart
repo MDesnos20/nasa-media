@@ -4,9 +4,9 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:socle/core/domain/entities/result.dart';
 import 'package:socle/core/error/failures.dart';
-import 'package:socle/features/movies/domain/entities/movie_entity.dart';
-import 'package:socle/features/movies/domain/usecases/get_movie_by_id_usecase.dart';
-import 'package:socle/features/movies/presentation/blocs/detail/movie_cubit.dart';
+import 'package:socle/features/apod/domain/entities/apod_entity.dart';
+import 'package:socle/features/apod/domain/usecases/get_movie_by_id_usecase.dart';
+import 'package:socle/features/apod/presentation/blocs/detail/apod_cubit.dart';
 
 import 'movie_cubit_test.mocks.dart';
 

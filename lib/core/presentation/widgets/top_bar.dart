@@ -21,7 +21,7 @@ class TopBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       iconTheme: const IconThemeData(color: AppColors.cararra),
-      backgroundColor: AppColors.mineralGreen,
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       elevation: 0.5,
       centerTitle: true,

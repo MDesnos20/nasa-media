@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../di/injection_container.dart';
 import '../../features/about/presentation/pages/about_page.dart';
-import '../../features/movies/presentation/blocs/detail/movie_cubit.dart';
-import '../../features/movies/presentation/pages/movie_detail_page.dart';
+import '../../features/apod/presentation/blocs/detail/apod_cubit.dart';
+import '../../features/apod/presentation/pages/apod_media_detail_page.dart';
 import '../../features/splash/presentation/pages/splashscreen_page.dart';
 import '../constants/route_list.dart';
 import '../presentation/pages/main_page.dart';
@@ -29,13 +29,13 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const SplashScreenPage());
       case RouteList.home:
         return MaterialPageRoute(builder: (_) => const MainPage());
-      case RouteList.movie:
+      case RouteList.apod:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
-              BlocProvider(create: (_) => sl<MovieCubit>()),
+              BlocProvider(create: (_) => sl<ApodCubit>()),
             ],
-            child: MovieDetailPage(movieDetailPageArgs: args as MovieDetailPageArgs),
+            child: ApodMediaDetailPage(apodDetailPageArgs: args as ApodDetailPageArgs),
           ),
         );
       case RouteList.about:

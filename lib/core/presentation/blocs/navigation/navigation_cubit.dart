@@ -14,7 +14,7 @@ class NavigationCubit extends Cubit<NavigationState> {
       case 0:
         return getNavBarItem(NavbarItem.home);
       case 1:
-        return getNavBarItem(NavbarItem.movies);
+        return getNavBarItem(NavbarItem.apod);
       case 2:
         return getNavBarItem(NavbarItem.favorites);
       default:

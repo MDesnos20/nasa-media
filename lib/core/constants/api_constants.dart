@@ -1,4 +1,3 @@
 class ApiConstants {
-  static String moviePath(int id) => '/movie/$id';
-  static const String popularMoviesPath = '/movie/popular';
+  static const String planetaryApodPath = '/planetary/apod';
 }
