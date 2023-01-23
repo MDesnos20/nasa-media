@@ -100,7 +100,7 @@ semantic-version:
   stage: semantic-version
   only:
     refs:
-      - main
+      - master
       - develop
   script:
     - touch CHANGELOG.md
