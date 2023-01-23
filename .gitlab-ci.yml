@@ -15,7 +15,7 @@ code_quality:
   stage: analyze
   before_script:
     - echo "test à la con 1"
-    - pub global activate dart_code_metrics
+    - flutter pub global activate dart_code_metrics
     - export PATH="$PATH":"$HOME/.pub-cache/bin"
     - echo "test à la con 2"
   script:
@@ -38,7 +38,7 @@ test-all:
   stage: test
   script:
     - export PATH="$PATH":"$HOME/.pub-cache/bin"
-    - pub global activate junitreport
+    - flutter pub global activate junitreport
     - flutter test --machine --coverage | tojunit -o report.xml
   only:
     refs:
@@ -54,7 +54,7 @@ test-dev:
   stage: test
   script:
     - export PATH="$PATH":"$HOME/.pub-cache/bin"
-    - pub global activate junitreport
+    - flutter pub global activate junitreport
     - flutter test --machine | tojunit -o report.xml
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
