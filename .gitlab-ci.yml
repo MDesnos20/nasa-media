@@ -2,7 +2,6 @@ stages: # List of stages for jobs, and their order of execution
   - analyze
   - test
   - coverage
-  - semantic-version
 
 default:
   image: cirrusci/flutter:latest
@@ -37,7 +36,7 @@ test-all:
     - flutter test --machine --coverage | tojunit -o report.xml
   only:
     refs:
-      - main
+      - master
       - develop
   artifacts:
     paths:
@@ -60,6 +59,8 @@ test-dev:
 coverage: # This job runs in the test stage.
   stage: coverage # It only starts when the job in the build stage completes successfully.
   script:
+    - pwd
+    - ls -la
     - lcov --summary coverage/lcov.info
     - lcov --remove coverage/lcov.info
       "lib/config/*"
@@ -89,18 +90,3 @@ coverage: # This job runs in the test stage.
   artifacts:
     paths:
       - public
-
-semantic-version:
-  image: node:16
-  stage: semantic-version
-  only:
-    refs:
-      - master
-      - develop
-  script:
-    - touch CHANGELOG.md
-    - npm install @semantic-release/gitlab @semantic-release/changelog
-    - npx semantic-release
-  artifacts:
-    paths:
-      - CHANGELOG.md
