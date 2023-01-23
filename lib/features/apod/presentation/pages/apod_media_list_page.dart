@@ -18,10 +18,13 @@ class ApodMediaListPage extends StatefulWidget {
 }
 
 class ApodMediaListPageState extends State<ApodMediaListPage> {
+
+  final ScrollController _controller = ScrollController();
+
   @override
   void initState() {
     super.initState();
-
+    _controller.addListener(_onScroll);
     context.read<ApodListCubit>().getApodMedia(true);
   }
 
@@ -35,7 +38,10 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
             child: Text(context.translate().error),
           ),
           loaded: (apodMediaList) {
+            context.read<ApodListCubit>().isFetching = false;
             return ApodMediaListWidget(
+              controller: _controller,
+              onScroll: _onScroll,
               apodMediaList: apodMediaList,
               onMediaClicked: _onMovieClicked,
               onRefresh: () async {
@@ -46,6 +52,15 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
         );
       },
     );
+  }
+
+  void _onScroll() {
+    if (_controller.offset ==
+                        _controller.position.maxScrollExtent &&
+                    !context.read<ApodListCubit>().isFetching) {
+                    context.read<ApodListCubit>().getApodMedia(false);
+                }
+    // 
   }
 
   void _onMovieClicked(ApodEntity movie) {

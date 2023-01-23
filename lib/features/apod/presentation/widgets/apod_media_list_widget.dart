@@ -8,18 +8,24 @@ class ApodMediaListWidget extends StatelessWidget {
     required this.apodMediaList,
     required this.onMediaClicked,
     required this.onRefresh,
+    required this.onScroll,
+    required this.controller,
     super.key,
   });
 
+  final ScrollController controller;
   final List<ApodEntity> apodMediaList;
   final Function(ApodEntity) onMediaClicked;
   final Future<void> Function() onRefresh;
+  final Function() onScroll;
+
 
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: CustomScrollView(
+        controller: this.controller,
         slivers: [
           SliverPadding(
             padding: const EdgeInsets.all(10.0),

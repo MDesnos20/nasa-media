@@ -10,6 +10,6 @@ class ApodEntity with _$ApodEntity {
     required String date,
     required String explanation,
     required String url,
-    required String hdurl,
+    required String? hdurl,
   }) = _ApodEntity;
 }

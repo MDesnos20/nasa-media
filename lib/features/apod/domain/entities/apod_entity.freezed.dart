@@ -21,7 +21,7 @@ mixin _$ApodEntity {
   String get date => throw _privateConstructorUsedError;
   String get explanation => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  String get hdurl => throw _privateConstructorUsedError;
+  String? get hdurl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ApodEntityCopyWith<ApodEntity> get copyWith =>
@@ -39,7 +39,7 @@ abstract class $ApodEntityCopyWith<$Res> {
       String date,
       String explanation,
       String url,
-      String hdurl});
+      String? hdurl});
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ class _$ApodEntityCopyWithImpl<$Res> implements $ApodEntityCopyWith<$Res> {
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -101,7 +101,7 @@ abstract class _$$_ApodEntityCopyWith<$Res>
       String date,
       String explanation,
       String url,
-      String hdurl});
+      String? hdurl});
 }
 
 /// @nodoc
@@ -147,7 +147,7 @@ class __$$_ApodEntityCopyWithImpl<$Res> extends _$ApodEntityCopyWithImpl<$Res>
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -174,7 +174,7 @@ class _$_ApodEntity implements _ApodEntity {
   @override
   final String url;
   @override
-  final String hdurl;
+  final String? hdurl;
 
   @override
   String toString() {
@@ -219,7 +219,7 @@ abstract class _ApodEntity implements ApodEntity {
       required final String date,
       required final String explanation,
       required final String url,
-      required final String hdurl}) = _$_ApodEntity;
+      required final String? hdurl}) = _$_ApodEntity;
 
   @override
   String get title;
@@ -232,7 +232,7 @@ abstract class _ApodEntity implements ApodEntity {
   @override
   String get url;
   @override
-  String get hdurl;
+  String? get hdurl;
   @override
   @JsonKey(ignore: true)
   _$$_ApodEntityCopyWith<_$_ApodEntity> get copyWith =>

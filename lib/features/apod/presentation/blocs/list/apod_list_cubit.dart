@@ -11,6 +11,8 @@ class ApodListCubit extends Cubit<ApodListState> {
   ApodListCubit({required this.apodMedia}) : super(ApodListState.loading());
 
   final GetApodMediaUseCase apodMedia;
+  List<ApodEntity> apodMediaList = [];
+  bool isFetching = false;
 
   int _count = 15;
 
@@ -19,10 +21,11 @@ class ApodListCubit extends Cubit<ApodListState> {
       emit(ApodListState.loading());
     }
     final result = await apodMedia(GetApodMediaUseCaseParams(count: _count));
-
+    this.isFetching = true;
     result.when(
       success: (apodMediaList) {
-        emit(ApodListState.loaded(apodMediaList: apodMediaList));
+        this.apodMediaList = [...this.apodMediaList, ...apodMediaList];
+        emit(ApodListState.loaded(apodMediaList: this.apodMediaList));
       },
       failure: (failure) {
         emit(ApodListState.error());

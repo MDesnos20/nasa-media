@@ -37,7 +37,7 @@ mixin _$ApodModel {
   String get url => throw _privateConstructorUsedError;
   @HiveField(5)
   @JsonKey(name: 'hdurl', nullable: true)
-  dynamic get hdurl => throw _privateConstructorUsedError;
+  String? get hdurl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +55,7 @@ abstract class $ApodModelCopyWith<$Res> {
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
       @HiveField(4) @JsonKey(name: 'url') String url,
-      @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) dynamic hdurl});
+      @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) String? hdurl});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class _$ApodModelCopyWithImpl<$Res> implements $ApodModelCopyWith<$Res> {
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
     ));
   }
 }
@@ -116,7 +116,7 @@ abstract class _$$_ApodModelCopyWith<$Res> implements $ApodModelCopyWith<$Res> {
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
       @HiveField(4) @JsonKey(name: 'url') String url,
-      @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) dynamic hdurl});
+      @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) String? hdurl});
 }
 
 /// @nodoc
@@ -162,7 +162,7 @@ class __$$_ApodModelCopyWithImpl<$Res> extends _$ApodModelCopyWithImpl<$Res>
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
     ));
   }
 }
@@ -217,7 +217,7 @@ class _$_ApodModel implements _ApodModel {
   @override
   @HiveField(5)
   @JsonKey(name: 'hdurl', nullable: true)
-  final dynamic hdurl;
+  final String? hdurl;
 
   @override
   String toString() {
@@ -282,7 +282,7 @@ abstract class _ApodModel implements ApodModel {
           required final String url,
       @HiveField(5)
       @JsonKey(name: 'hdurl', nullable: true)
-          required final dynamic hdurl}) = _$_ApodModel;
+          required final String? hdurl}) = _$_ApodModel;
 
   factory _ApodModel.fromJson(Map<String, dynamic> json) =
       _$_ApodModel.fromJson;
@@ -310,7 +310,7 @@ abstract class _ApodModel implements ApodModel {
   @override
   @HiveField(5)
   @JsonKey(name: 'hdurl', nullable: true)
-  dynamic get hdurl;
+  String? get hdurl;
   @override
   @JsonKey(ignore: true)
   _$$_ApodModelCopyWith<_$_ApodModel> get copyWith =>
