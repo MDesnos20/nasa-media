@@ -40,6 +40,10 @@ test-all:
     - export PATH="$PATH":"$HOME/.pub-cache/bin"
     - flutter pub global activate junitreport
     - flutter test --machine --coverage | tojunit -o report.xml
+  only:
+    refs:
+      - master
+      - develop
   artifacts:
     paths:
       - coverage
@@ -82,6 +86,10 @@ coverage: # This job runs in the test stage.
     - chmod +x codecov
     - ./codecov -t $CODECOV_TOKEN
     - mv coverage/ public/
+  only:
+    refs:
+      - master
+      - develop
   coverage: '/lines\.*: \d+\.\d+\%/'
   artifacts:
     paths:
@@ -90,6 +98,10 @@ coverage: # This job runs in the test stage.
 semantic-version:
   image: node:16
   stage: semantic-version
+  only:
+    refs:
+      -  
+      - develop
   script:
     - touch CHANGELOG.md
     - npm install @semantic-release/gitlab @semantic-release/changelog
