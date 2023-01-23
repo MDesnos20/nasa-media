@@ -1,39 +1,10 @@
 [
-  {
-      "date": "2011-01-25",
-      "explanation": "What is causing the picturesque ripples of supernova remnant SNR 0509-67.5? The ripples, as well as the greater nebula, were imaged in unprecedented detail by the Hubble Space Telescope in 2006 and again late last year.  The red color was recoded by a Hubble filter that left only the light emitted by energetic hydrogen. The precise reason for the ripples remains unknown, with two considered origin hypotheses relating them to relatively dense portions of either ejected or impacted gas.  The reason for the broader red glowing ring is more clear, with expansion speed and light echos relating it to a classic Type Ia supernova explosion that must have occurred about 400 years earlier. SNR 0509 currently spans about 23 light years and lies about 160,000 light years away toward the constellation of the dolphinfish (Dorado) in the Large Magellanic Cloud. The expanding ring carries with it another great mystery, however: why wasn't this supernova seen 400 years ago when light from the initial blast should have passed the Earth?   Like: Follow APOD on Facebook",
-      "hdurl": "https://apod.nasa.gov/apod/image/1101/snr0509_hubble_big.jpg",
-      "media_type": "image",
-      "service_version": "v1",
-      "title": "The Rippled Red Ribbons of SNR 0509",
-      "url": "https://apod.nasa.gov/apod/image/1101/snr0509_hubble.jpg"
-  },
-  {
-      "copyright": "John Kraus",
-      "date": "2021-10-20",
-      "explanation": "Why would this mission go out as far as Jupiter -- but then not visit Jupiter? Lucy's plan is to follow different leads about the origin of our Solar System than can be found at Jupiter -- where Juno now orbits. Jupiter is such a massive planet that its gravity captures numerous asteroids that orbit the Sun ahead of it -- and behind. These trojan asteroids formed all over our Solar System and some may have been trapped there for billions of years. Flying by these trojan asteroids enables studying them as fossils that likely hold unique clues about our early Solar System. Lucy, named after a famous fossil skeleton which was named after a famous song, is scheduled to visit eight asteroids from 2025 to 2033.  Pictured, Lucy's launch was captured with reflection last week aboard a powerful Atlas V rocket from Cape Canaveral, Florida, USA.",
-      "hdurl": "https://apod.nasa.gov/apod/image/2110/LucyLaunchB_Kraus_2048.jpg",
-      "media_type": "image",
-      "service_version": "v1",
-      "title": "Lucy Launches to Eight Asteroids",
-      "url": "https://apod.nasa.gov/apod/image/2110/LucyLaunchB_Kraus_960.jpg"
-  },
-  {
-      "date": "2011-05-03",
-      "explanation": "Stars, like bees, swarm around the center of bright globular cluster M15.  This ball of over 100,000 stars is a relic from the early years of our Galaxy, and continues to orbit the Milky Way's center.  M15, one of about 150 globular clusters remaining, is noted for being easily visible with only binoculars, having at its center one of the densest concentrations of stars known, and containing a high abundance of variable stars and pulsars.  This sharp image, taken by the Earth-orbiting Hubble Space Telescope, spans about 120 light years. It shows the dramatic increase in density of stars toward the cluster's center.  M15 lies about 35,000 light years away toward the constellation of the Winged Horse (Pegasus).  Recent evidence indicates that a massive black hole might reside as the center of M15.",
-      "hdurl": "https://apod.nasa.gov/apod/image/1105/m15_hst_4089.jpg",
-      "media_type": "image",
-      "service_version": "v1",
-      "title": "Globular Cluster M15 from Hubble",
-      "url": "https://apod.nasa.gov/apod/image/1105/m15_hst_900.jpg"
-  },
-  {
-      "date": "1998-10-21",
-      "explanation": "Sometimes, near midnight, auroras suddenly stop. Nobody knows why.  This nightside gap in aurora was confirmed recently by D. Chua (U. Washington) and colleagues in data from the Ultraviolet Imager onboard the Polar spacecraft.  The gap appears from space as a slight break in a more full auroral arc surrounding a magnetic pole of the Earth.  Pictured above are clouds and auroras occurring last August near Wildcat Mountain in Wisconsin.",
-      "hdurl": "https://apod.nasa.gov/apod/image/9810/aurora1_jpd.jpg",
-      "media_type": "image",
-      "service_version": "v1",
-      "title": "The Case of the Missing Aurora",
-      "url": "https://apod.nasa.gov/apod/image/9810/aurora1_jpd_big.jpg"
-  }
+    {
+        "date":"2023-01-19",
+        "explanation":"A broad expanse of glowing gas and dust presents a bird-like visage to astronomers from planet Earth, suggesting its popular moniker - The Seagull Nebula. Using narrowband image data, this 3-panel mosaic of the cosmic bird covers a 2.5 degree swath across the plane of the Milky Way, near the direction of Sirius, alpha star of the constellation Canis Major. Likely part of a larger shell structure swept up by successive supernova explosions, the broad Seagull Nebula is cataloged as Sh2-296 and IC 2177. The prominent bluish arc below and right of center is a bow shock from runaway star FN Canis Majoris. This complex of gas and dust clouds with other stars of the Canis Majoris OB1 association spans over 200 light-years at the Seagull Nebula's estimated 3,800 light-year distance.",
+        "hdurl": "https://apod.nasa.gov/apod/image/2301/crtastro_0172_2194p.jpg",
+        "media_type": "image",
+        "title":"The Seagull Nebula",
+        "url":"https://apod.nasa.gov/apod/image/2301/crtastro_0172_1097p.jpg"
+      }
 ]
