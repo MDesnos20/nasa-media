@@ -34,25 +34,9 @@ test-all:
     - export PATH="$PATH":"$HOME/.pub-cache/bin"
     - flutter pub global activate junitreport
     - flutter test --machine --coverage | tojunit -o report.xml
-  only:
-    refs:
-      - main
-      - develop
   artifacts:
     paths:
       - coverage
-    reports:
-      junit: report.xml
-
-test-dev:
-  stage: test
-  script:
-    - export PATH="$PATH":"$HOME/.pub-cache/bin"
-    - flutter pub global activate junitreport
-    - flutter test --machine | tojunit -o report.xml
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-  artifacts:
     reports:
       junit: report.xml
 
