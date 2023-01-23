@@ -2,7 +2,6 @@ stages: # List of stages for jobs, and their order of execution
   - analyze
   - test
   - coverage
-  - semantic-version
 
 default:
   image: cirrusci/flutter:latest
@@ -83,26 +82,7 @@ coverage: # This job runs in the test stage.
     - chmod +x codecov
     - ./codecov -t $CODECOV_TOKEN
     - mv coverage/ public/
-  only:
-    refs:
-      - master
-      - develop
   coverage: '/lines\.*: \d+\.\d+\%/'
   artifacts:
     paths:
       - public
-
-semantic-version:
-  image: node:16
-  stage: semantic-version
-  only:
-    refs:
-      - master
-      - develop
-  script:
-    - touch CHANGELOG.md
-    - npm install @semantic-release/gitlab @semantic-release/changelog
-    - npx semantic-release
-  artifacts:
-    paths:
-      - CHANGELOG.md
