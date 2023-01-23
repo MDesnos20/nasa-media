@@ -16,8 +16,6 @@ class ApodListCubit extends Cubit<ApodListState> {
 
   int _count = 15;
 
-
-
   Future<void> getApodMedia(bool firstTime) async {
     if (firstTime == true) {
       emit(ApodListState.loading());

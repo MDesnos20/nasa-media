@@ -23,11 +23,10 @@ class ApodRepositoryImpl implements ApodRepository {
     if (!(await networkInfo.isConnected)) {
       return const Result.failure(Failure.offline());
     }
-
     try {
       final result = await remoteDataSource.getApodMedia(count);
       final apodMediaList = getApodMediaList(result);
-      return Result.success(apodMediaList); // TODO créer la liste
+      return Result.success(apodMediaList);
     } on ServerException {
       return const Result.failure(Failure.server());
     }

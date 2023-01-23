@@ -30,7 +30,7 @@ void main() async {
 
     test('Should get apod list', () async {
       // arrange
-      final route = GlobalConfiguration().getValue('api_base_url');
+      final route = GlobalConfiguration().getValue('api_base_url') + ApiConstants.planetaryApodPath;
       adapter.onGet(
         route,
         queryParameters: {
