@@ -6,7 +6,6 @@ import '../../../../di/injection_container.dart';
 import '../../../features/apod/presentation/blocs/list/apod_list_cubit.dart';
 import '../../../features/apod/presentation/pages/apod_media_list_page.dart';
 import '../../../features/home/presentation/pages/home_page.dart';
-import '../../extension/context.dart';
 import '../blocs/navigation/navigation_cubit.dart';
 import '../widgets/bottom_navigation_bar_widget.dart';
 import '../widgets/top_bar.dart';

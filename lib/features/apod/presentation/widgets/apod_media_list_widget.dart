@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:global_configuration/global_configuration.dart';
 
 import '../../domain/entities/apod_entity.dart';
 import 'media_tile_widget.dart';
