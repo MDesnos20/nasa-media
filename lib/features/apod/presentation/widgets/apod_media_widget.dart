@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:global_configuration/global_configuration.dart';
 
-import '../../../../core/extension/context.dart';
 import '../../../../core/theme/spacing.dart';
 import '../../domain/entities/apod_entity.dart';
 

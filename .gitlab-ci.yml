@@ -1,0 +1,106 @@
+stages: # List of stages for jobs, and their order of execution
+  - analyze
+  - test
+  - coverage
+  - semantic-version
+
+default:
+  image: cirrusci/flutter:latest
+
+cache:
+  paths:
+    - /flutter/bin/cache/dart-sdk
+
+code_quality:
+  stage: analyze
+  before_script:
+    - flutter pub global activate dart_code_metrics
+    - export PATH="$PATH":"$HOME/.pub-cache/bin"
+  script:
+    - flutter --version
+    - flutter analyze
+    - metrics lib -r codeclimate  > gl-code-quality-report.json
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop" && $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      allow_failure: true
+
+  artifacts:
+    reports:
+      codequality: gl-code-quality-report.json
+
+test-all:
+  stage: test
+  script:
+    - export PATH="$PATH":"$HOME/.pub-cache/bin"
+    - flutter pub global activate junitreport
+    - flutter test --machine --coverage | tojunit -o report.xml
+  only:
+    refs:
+      - main
+      - develop
+  artifacts:
+    paths:
+      - coverage
+    reports:
+      junit: report.xml
+
+test-dev:
+  stage: test
+  script:
+    - export PATH="$PATH":"$HOME/.pub-cache/bin"
+    - flutter pub global activate junitreport
+    - flutter test --machine | tojunit -o report.xml
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  artifacts:
+    reports:
+      junit: report.xml
+
+coverage: # This job runs in the test stage.
+  stage: coverage # It only starts when the job in the build stage completes successfully.
+  script:
+    - lcov --summary coverage/lcov.info
+    - lcov --remove coverage/lcov.info
+      "lib/config/*"
+      "lib/application/l10n/l10n.dart"
+      "lib/application/l10n/**/*"
+      "lib/domain/repositories/*"
+      "lib/injection.config.dart"
+      "lib/presentation/routes/*"
+      "lib/infrastructure/repositories/firebase_injectable_module.dart"
+      "**/mock_*.dart"
+      "**/*.g.dart"
+      "**/*.gr.dart"
+      "**/*.freezed.dart"
+      "**/*.mocks.dart"
+      "**/*.config.dart"
+      -o coverage/clean_lcov.info
+    - genhtml coverage/clean_lcov.info --output=coverage
+    - curl -Os https://uploader.codecov.io/latest/linux/codecov
+    - chmod +x codecov
+    - ./codecov -t $CODECOV_TOKEN
+    - mv coverage/ public/
+  only:
+    refs:
+      - master
+      - develop
+  coverage: '/lines\.*: \d+\.\d+\%/'
+  artifacts:
+    paths:
+      - public
+
+semantic-version:
+  image: node:16
+  stage: semantic-version
+  only:
+    refs:
+      - master
+      - develop
+  script:
+    - touch CHANGELOG.md
+    - npm install @semantic-release/gitlab @semantic-release/changelog
+    - npx semantic-release
+  artifacts:
+    paths:
+      - CHANGELOG.md
