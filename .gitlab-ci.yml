@@ -60,6 +60,8 @@ test-dev:
 coverage: # This job runs in the test stage.
   stage: coverage # It only starts when the job in the build stage completes successfully.
   script:
+    - pwd
+    - ls -la
     - lcov --summary coverage/lcov.info
     - lcov --remove coverage/lcov.info
       "lib/config/*"
