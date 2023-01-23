@@ -42,7 +42,7 @@ test-all:
     - flutter test --machine --coverage | tojunit -o report.xml
   only:
     refs:
-      - main
+      - master
       - develop
   artifacts:
     paths:
@@ -100,7 +100,7 @@ semantic-version:
   stage: semantic-version
   only:
     refs:
-      - main
+      - master
       - develop
   script:
     - touch CHANGELOG.md
