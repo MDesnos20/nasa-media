@@ -34,7 +34,10 @@ test-all:
     - export PATH="$PATH":"$HOME/.pub-cache/bin"
     - flutter pub global activate junitreport
     - flutter test --machine --coverage | tojunit -o report.xml
-
+  only:
+    refs:
+      - master
+      - develop
   artifacts:
     paths:
       - coverage
@@ -79,6 +82,10 @@ coverage: # This job runs in the test stage.
     - chmod +x codecov
     - ./codecov -t $CODECOV_TOKEN
     - mv coverage/ public/
+  only:
+    refs:
+      - master
+      - develop
   coverage: '/lines\.*: \d+\.\d+\%/'
   artifacts:
     paths:
