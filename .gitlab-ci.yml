@@ -14,12 +14,17 @@ cache:
 code_quality:
   stage: analyze
   before_script:
+    - echo "test à la con 1"
     - pub global activate dart_code_metrics
     - export PATH="$PATH":"$HOME/.pub-cache/bin"
+    - echo "test à la con 2"
   script:
+    - echo "test à la con 3"
     - flutter --version
     - flutter analyze
+    - echo "test à la con 4"
     - metrics lib -r codeclimate  > gl-code-quality-report.json
+    - echo "test à la con 5"
   rules:
     - if: $CI_COMMIT_BRANCH == "develop" && $CI_PIPELINE_SOURCE == "push"
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
