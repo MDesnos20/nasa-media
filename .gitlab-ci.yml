@@ -1,7 +1,6 @@
 stages: # List of stages for jobs, and their order of execution
   - analyze
   - test
-  - coverage
 
 default:
   image: cirrusci/flutter:latest
@@ -28,45 +27,13 @@ code_quality:
     reports:
       codequality: gl-code-quality-report.json
 
-test-all:
+test:
+  extends: .android_docker_image
   stage: test
   script:
-    - export PATH="$PATH":"$HOME/.pub-cache/bin"
-    - flutter pub global activate junitreport
-    - flutter test --machine --coverage | tojunit -o report.xml
+    - flutter test --coverage
+    - genhtml coverage/lcov.info --output=coverage
   artifacts:
     paths:
-      - coverage
-    reports:
-      junit: report.xml
-
-coverage: # This job runs in the test stage.
-  stage: coverage # It only starts when the job in the build stage completes successfully.
-  script:
-    - pwd
-    - ls -la
-    - lcov --summary coverage/lcov.info
-    - lcov --remove coverage/lcov.info
-      "lib/config/*"
-      "lib/application/l10n/l10n.dart"
-      "lib/application/l10n/**/*"
-      "lib/domain/repositories/*"
-      "lib/injection.config.dart"
-      "lib/presentation/routes/*"
-      "lib/infrastructure/repositories/firebase_injectable_module.dart"
-      "**/mock_*.dart"
-      "**/*.g.dart"
-      "**/*.gr.dart"
-      "**/*.freezed.dart"
-      "**/*.mocks.dart"
-      "**/*.config.dart"
-      -o coverage/clean_lcov.info
-    - genhtml coverage/clean_lcov.info --output=coverage
-    - curl -Os https://uploader.codecov.io/latest/linux/codecov
-    - chmod +x codecov
-    - ./codecov -t $CODECOV_TOKEN
-    - mv coverage/ public/
-  coverage: '/lines\.*: \d+\.\d+\%/'
-  artifacts:
-    paths:
-      - public
+      - coverage/
+    expire_in: 5 days
