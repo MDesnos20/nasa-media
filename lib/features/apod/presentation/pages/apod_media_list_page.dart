@@ -12,7 +12,6 @@ import 'apod_media_detail_page.dart';
 class ApodMediaListPage extends StatefulWidget {
   ApodMediaListPage({super.key});
 
-
   @override
   State<ApodMediaListPage> createState() => ApodMediaListPageState();
 }
@@ -29,11 +28,21 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
   }
 
   @override
+  void dispose() {
+    _controller.removeListener(_onScroll);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<ApodListCubit, ApodListState>(
       builder: (context, state) {
         return state.when(
-          loading: () => const LoadingWidget(),
+          loading: () {
+            print("Loading ?");
+            return Center(child: CircularProgressIndicator());
+            //return LoadingWidget();
+          },
           error: () => Center(
             child: Text(context.translate().error),
           ),
