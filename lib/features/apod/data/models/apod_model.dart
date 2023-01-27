@@ -15,7 +15,7 @@ class ApodModel with _$ApodModel {
     @HiveField(2) @JsonKey(name: 'date') required String date,
     @HiveField(3) @JsonKey(name: 'explanation') required String explanation,
     @HiveField(4) @JsonKey(name: 'url') required String url,
-    @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) required dynamic hdurl,
+    @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) required String? hdurl,
   }) = _ApodModel;
 
   factory ApodModel.fromJson(dynamic json) => _$ApodModelFromJson(json);

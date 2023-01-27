@@ -22,7 +22,7 @@ class ApodModelAdapter extends TypeAdapter<_$_ApodModel> {
       date: fields[2] as String,
       explanation: fields[3] as String,
       url: fields[4] as String,
-      hdurl: fields[5] as dynamic,
+      hdurl: fields[5] as String?,
     );
   }
 
@@ -65,7 +65,7 @@ _$_ApodModel _$$_ApodModelFromJson(Map<String, dynamic> json) => _$_ApodModel(
       date: json['date'] as String,
       explanation: json['explanation'] as String,
       url: json['url'] as String,
-      hdurl: json['hdurl'],
+      hdurl: json['hdurl'] as String?,
     );
 
 Map<String, dynamic> _$$_ApodModelToJson(_$_ApodModel instance) =>
