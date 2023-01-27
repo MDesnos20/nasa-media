@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:socle/core/presentation/widgets/loading_grid_widget.dart';
 
 import '../../../../core/constants/route_list.dart';
 import '../../../../core/extension/context.dart';
@@ -17,7 +18,6 @@ class ApodMediaListPage extends StatefulWidget {
 }
 
 class ApodMediaListPageState extends State<ApodMediaListPage> {
-
   final ScrollController _controller = ScrollController();
 
   @override
@@ -39,9 +39,7 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
       builder: (context, state) {
         return state.when(
           loading: () {
-            print("Loading ?");
-            return Center(child: CircularProgressIndicator());
-            //return LoadingWidget();
+            return Center(child: LoadingGridWidget());
           },
           error: () => Center(
             child: Text(context.translate().error),
@@ -49,6 +47,7 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
           loaded: (apodMediaList) {
             context.read<ApodListCubit>().isFetching = false;
             return ApodMediaListWidget(
+              isLoading: context.read<ApodListCubit>().isFetching,
               controller: _controller,
               onScroll: _onScroll,
               apodMediaList: apodMediaList,
@@ -64,12 +63,10 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
   }
 
   void _onScroll() {
-    if (_controller.offset ==
-                        _controller.position.maxScrollExtent &&
-                    !context.read<ApodListCubit>().isFetching) {
-                    context.read<ApodListCubit>().getApodMedia(false);
-                }
-    // 
+    if (_controller.offset == _controller.position.maxScrollExtent &&
+        !context.read<ApodListCubit>().isFetching) {
+      context.read<ApodListCubit>().getApodMedia(false);
+    }
   }
 
   void _onMovieClicked(ApodEntity movie) {
