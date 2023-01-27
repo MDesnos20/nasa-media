@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:socle/core/presentation/widgets/loading_grid_widget.dart';
 
 import '../../../../core/constants/route_list.dart';
 import '../../../../core/extension/context.dart';
-import '../../../../core/presentation/widgets/loading_widget.dart';
+import '../../../../core/presentation/widgets/loading_grid_widget.dart';
 import '../../domain/entities/apod_entity.dart';
 import '../blocs/list/apod_list_cubit.dart';
 import '../widgets/apod_media_list_widget.dart';

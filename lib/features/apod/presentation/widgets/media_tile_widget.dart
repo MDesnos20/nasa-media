@@ -26,7 +26,6 @@ class MediaTileWidget extends StatelessWidget {
             ),
           ),
         );
-        ;
       },
     );
   }
