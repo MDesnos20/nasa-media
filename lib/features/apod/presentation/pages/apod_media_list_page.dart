@@ -50,7 +50,7 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
               controller: _controller,
               onScroll: _onScroll,
               apodMediaList: apodMediaList,
-              onMediaClicked: _onMovieClicked,
+              onMediaClicked: _onMediaClicked,
               onRefresh: () async {
                 context.read<ApodListCubit>().getApodMedia(false);
               },
@@ -68,13 +68,11 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
     }
   }
 
-  void _onMovieClicked(ApodEntity movie) {
+  void _onMediaClicked(ApodEntity apod) {
     Navigator.of(context).pushNamed(
-      RouteList.about,
+      RouteList.apod,
       arguments: ApodDetailPageArgs(
-        title: movie.title,
-        movieId: 1,
-        locale: context.currentLocale(),
+        apodDetail: apod,
       ),
     );
   }

@@ -21,7 +21,7 @@ class ApodWidget extends StatelessWidget {
           AppGap.regular(),
           Center(
             child: CachedNetworkImage(
-              imageUrl: '${media.url}',
+              imageUrl: '${media.hdurl}',
               fit: BoxFit.contain,
             ),
           ),
@@ -29,6 +29,8 @@ class ApodWidget extends StatelessWidget {
           Text(media.title),
           AppGap.regular(),
           Text(media.date),
+          AppGap.regular(),
+          Text(media.explanation),
         ],
       ),
     );
