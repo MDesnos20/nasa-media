@@ -9,7 +9,7 @@ class ApodEntity with _$ApodEntity {
     required String media_type,
     required String date,
     required String explanation,
-    required String url,
+    required String? url,
     required String? hdurl,
   }) = _ApodEntity;
 }

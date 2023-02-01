@@ -18,11 +18,9 @@ class ApodMediaListPage extends StatefulWidget {
 
 class ApodMediaListPageState extends State<ApodMediaListPage> {
   final ScrollController _controller = ScrollController();
-
   @override
   void initState() {
     super.initState();
-    _controller.addListener(_onScroll);
     context.read<ApodListCubit>().getApodMedia(true);
   }
 
@@ -62,6 +60,7 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
   }
 
   void _onScroll() {
+    print('scrool');
     if (_controller.offset == _controller.position.maxScrollExtent &&
         !context.read<ApodListCubit>().isFetching) {
       context.read<ApodListCubit>().getApodMedia(false);

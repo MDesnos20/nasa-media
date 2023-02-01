@@ -20,7 +20,7 @@ mixin _$ApodEntity {
   String get media_type => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get explanation => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
   String? get hdurl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $ApodEntityCopyWith<$Res> {
       String media_type,
       String date,
       String explanation,
-      String url,
+      String? url,
       String? hdurl});
 }
 
@@ -79,7 +79,7 @@ class _$ApodEntityCopyWithImpl<$Res> implements $ApodEntityCopyWith<$Res> {
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
@@ -100,7 +100,7 @@ abstract class _$$_ApodEntityCopyWith<$Res>
       String media_type,
       String date,
       String explanation,
-      String url,
+      String? url,
       String? hdurl});
 }
 
@@ -143,7 +143,7 @@ class __$$_ApodEntityCopyWithImpl<$Res> extends _$ApodEntityCopyWithImpl<$Res>
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ class _$_ApodEntity implements _ApodEntity {
   @override
   final String explanation;
   @override
-  final String url;
+  final String? url;
   @override
   final String? hdurl;
 
@@ -218,7 +218,7 @@ abstract class _ApodEntity implements ApodEntity {
       required final String media_type,
       required final String date,
       required final String explanation,
-      required final String url,
+      required final String? url,
       required final String? hdurl}) = _$_ApodEntity;
 
   @override
@@ -230,7 +230,7 @@ abstract class _ApodEntity implements ApodEntity {
   @override
   String get explanation;
   @override
-  String get url;
+  String? get url;
   @override
   String? get hdurl;
   @override
