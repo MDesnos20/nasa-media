@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../di/injection_container.dart';
 import '../../features/about/presentation/pages/about_page.dart';
+import '../../features/apod/domain/entities/apod_entity.dart';
 import '../../features/apod/presentation/blocs/detail/apod_cubit.dart';
 import '../../features/apod/presentation/pages/apod_media_detail_page.dart';
 import '../../features/splash/presentation/pages/splashscreen_page.dart';
@@ -38,8 +39,8 @@ class AppRouter {
             child: ApodMediaDetailPage(apodDetailPageArgs: args as ApodDetailPageArgs),
           ),
         );
-      case RouteList.about:
-        return MaterialPageRoute(builder: (_) => const AboutPage());
+      case RouteList.apodDetail:
+        return MaterialPageRoute(builder: (_) => ApodMediaDetailPage(apodDetailPageArgs: args as ApodDetailPageArgs));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
