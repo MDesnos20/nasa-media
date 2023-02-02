@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/extension/context.dart';
-import '../../../../core/presentation/widgets/loading_widget.dart';
 import '../../../../core/presentation/widgets/top_bar.dart';
 import '../../domain/entities/apod_entity.dart';
-import '../blocs/detail/apod_cubit.dart';
 import '../widgets/apod_media_widget.dart';
 
 class ApodMediaDetailPage extends StatefulWidget {
