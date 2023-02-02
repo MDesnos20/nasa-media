@@ -18,7 +18,6 @@ class ApodMediaListPage extends StatefulWidget {
 
 class ApodMediaListPageState extends State<ApodMediaListPage> {
   final ScrollController _controller = ScrollController();
-
   @override
   void initState() {
     super.initState();

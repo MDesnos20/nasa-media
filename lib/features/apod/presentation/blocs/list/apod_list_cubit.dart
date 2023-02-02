@@ -19,8 +19,11 @@ class ApodListCubit extends Cubit<ApodListState> {
   Future<void> getApodMedia(bool firstTime) async {
     if (firstTime == true) {
       emit(ApodListState.loading());
+      if (this.apodMediaList.isEmpty == false) {
+        emit(ApodListState.loaded(apodMediaList: this.apodMediaList));
+      }
     }
-    
+
     final result = await apodMedia(GetApodMediaUseCaseParams(count: _count));
     this.isFetching = true;
     result.when(

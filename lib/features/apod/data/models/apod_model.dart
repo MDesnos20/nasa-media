@@ -14,7 +14,7 @@ class ApodModel with _$ApodModel {
     @HiveField(1) @JsonKey(name: 'media_type') required String media_type,
     @HiveField(2) @JsonKey(name: 'date') required String date,
     @HiveField(3) @JsonKey(name: 'explanation') required String explanation,
-    @HiveField(4) @JsonKey(name: 'url') required String url,
+    @HiveField(4) @JsonKey(name: 'url', nullable: true) required String? url,
     @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) required String? hdurl,
   }) = _ApodModel;
 

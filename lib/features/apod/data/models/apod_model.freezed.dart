@@ -33,8 +33,8 @@ mixin _$ApodModel {
   @JsonKey(name: 'explanation')
   String get explanation => throw _privateConstructorUsedError;
   @HiveField(4)
-  @JsonKey(name: 'url')
-  String get url => throw _privateConstructorUsedError;
+  @JsonKey(name: 'url', nullable: true)
+  String? get url => throw _privateConstructorUsedError;
   @HiveField(5)
   @JsonKey(name: 'hdurl', nullable: true)
   String? get hdurl => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $ApodModelCopyWith<$Res> {
       @HiveField(1) @JsonKey(name: 'media_type') String media_type,
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
-      @HiveField(4) @JsonKey(name: 'url') String url,
+      @HiveField(4) @JsonKey(name: 'url', nullable: true) String? url,
       @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) String? hdurl});
 }
 
@@ -95,7 +95,7 @@ class _$ApodModelCopyWithImpl<$Res> implements $ApodModelCopyWith<$Res> {
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ abstract class _$$_ApodModelCopyWith<$Res> implements $ApodModelCopyWith<$Res> {
       @HiveField(1) @JsonKey(name: 'media_type') String media_type,
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
-      @HiveField(4) @JsonKey(name: 'url') String url,
+      @HiveField(4) @JsonKey(name: 'url', nullable: true) String? url,
       @HiveField(5) @JsonKey(name: 'hdurl', nullable: true) String? hdurl});
 }
 
@@ -158,7 +158,7 @@ class __$$_ApodModelCopyWithImpl<$Res> extends _$ApodModelCopyWithImpl<$Res>
       url: url == freezed
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       hdurl: hdurl == freezed
           ? _value.hdurl
           : hdurl // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,7 @@ class _$_ApodModel implements _ApodModel {
       @JsonKey(name: 'explanation')
           required this.explanation,
       @HiveField(4)
-      @JsonKey(name: 'url')
+      @JsonKey(name: 'url', nullable: true)
           required this.url,
       @HiveField(5)
       @JsonKey(name: 'hdurl', nullable: true)
@@ -212,8 +212,8 @@ class _$_ApodModel implements _ApodModel {
   final String explanation;
   @override
   @HiveField(4)
-  @JsonKey(name: 'url')
-  final String url;
+  @JsonKey(name: 'url', nullable: true)
+  final String? url;
   @override
   @HiveField(5)
   @JsonKey(name: 'hdurl', nullable: true)
@@ -278,8 +278,8 @@ abstract class _ApodModel implements ApodModel {
       @JsonKey(name: 'explanation')
           required final String explanation,
       @HiveField(4)
-      @JsonKey(name: 'url')
-          required final String url,
+      @JsonKey(name: 'url', nullable: true)
+          required final String? url,
       @HiveField(5)
       @JsonKey(name: 'hdurl', nullable: true)
           required final String? hdurl}) = _$_ApodModel;
@@ -305,8 +305,8 @@ abstract class _ApodModel implements ApodModel {
   String get explanation;
   @override
   @HiveField(4)
-  @JsonKey(name: 'url')
-  String get url;
+  @JsonKey(name: 'url', nullable: true)
+  String? get url;
   @override
   @HiveField(5)
   @JsonKey(name: 'hdurl', nullable: true)

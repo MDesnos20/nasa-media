@@ -21,7 +21,7 @@ class ApodModelAdapter extends TypeAdapter<_$_ApodModel> {
       media_type: fields[1] as String,
       date: fields[2] as String,
       explanation: fields[3] as String,
-      url: fields[4] as String,
+      url: fields[4] as String?,
       hdurl: fields[5] as String?,
     );
   }
@@ -64,7 +64,7 @@ _$_ApodModel _$$_ApodModelFromJson(Map<String, dynamic> json) => _$_ApodModel(
       media_type: json['media_type'] as String,
       date: json['date'] as String,
       explanation: json['explanation'] as String,
-      url: json['url'] as String,
+      url: json['url'] as String?,
       hdurl: json['hdurl'] as String?,
     );
 
