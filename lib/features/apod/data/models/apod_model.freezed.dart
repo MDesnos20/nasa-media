@@ -24,8 +24,8 @@ mixin _$ApodModel {
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
   @HiveField(1)
-  @JsonKey(name: 'media_type')
-  String get media_type => throw _privateConstructorUsedError;
+  @JsonKey(name: 'mediaType')
+  String? get mediaType => throw _privateConstructorUsedError;
   @HiveField(2)
   @JsonKey(name: 'date')
   String get date => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $ApodModelCopyWith<$Res> {
       _$ApodModelCopyWithImpl<$Res>;
   $Res call(
       {@HiveField(0) @JsonKey(name: 'title') String title,
-      @HiveField(1) @JsonKey(name: 'media_type') String media_type,
+      @HiveField(1) @JsonKey(name: 'mediaType') String? mediaType,
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
       @HiveField(4) @JsonKey(name: 'url', nullable: true) String? url,
@@ -69,7 +69,7 @@ class _$ApodModelCopyWithImpl<$Res> implements $ApodModelCopyWith<$Res> {
   @override
   $Res call({
     Object? title = freezed,
-    Object? media_type = freezed,
+    Object? mediaType = freezed,
     Object? date = freezed,
     Object? explanation = freezed,
     Object? url = freezed,
@@ -80,10 +80,10 @@ class _$ApodModelCopyWithImpl<$Res> implements $ApodModelCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      media_type: media_type == freezed
-          ? _value.media_type
-          : media_type // ignore: cast_nullable_to_non_nullable
-              as String,
+      mediaType: mediaType == freezed
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ abstract class _$$_ApodModelCopyWith<$Res> implements $ApodModelCopyWith<$Res> {
   @override
   $Res call(
       {@HiveField(0) @JsonKey(name: 'title') String title,
-      @HiveField(1) @JsonKey(name: 'media_type') String media_type,
+      @HiveField(1) @JsonKey(name: 'mediaType') String? mediaType,
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
       @HiveField(4) @JsonKey(name: 'url', nullable: true) String? url,
@@ -132,7 +132,7 @@ class __$$_ApodModelCopyWithImpl<$Res> extends _$ApodModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
-    Object? media_type = freezed,
+    Object? mediaType = freezed,
     Object? date = freezed,
     Object? explanation = freezed,
     Object? url = freezed,
@@ -143,10 +143,10 @@ class __$$_ApodModelCopyWithImpl<$Res> extends _$ApodModelCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      media_type: media_type == freezed
-          ? _value.media_type
-          : media_type // ignore: cast_nullable_to_non_nullable
-              as String,
+      mediaType: mediaType == freezed
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -176,8 +176,8 @@ class _$_ApodModel implements _ApodModel {
       @JsonKey(name: 'title')
           required this.title,
       @HiveField(1)
-      @JsonKey(name: 'media_type')
-          required this.media_type,
+      @JsonKey(name: 'mediaType')
+          required this.mediaType,
       @HiveField(2)
       @JsonKey(name: 'date')
           required this.date,
@@ -200,8 +200,8 @@ class _$_ApodModel implements _ApodModel {
   final String title;
   @override
   @HiveField(1)
-  @JsonKey(name: 'media_type')
-  final String media_type;
+  @JsonKey(name: 'mediaType')
+  final String? mediaType;
   @override
   @HiveField(2)
   @JsonKey(name: 'date')
@@ -221,7 +221,7 @@ class _$_ApodModel implements _ApodModel {
 
   @override
   String toString() {
-    return 'ApodModel(title: $title, media_type: $media_type, date: $date, explanation: $explanation, url: $url, hdurl: $hdurl)';
+    return 'ApodModel(title: $title, mediaType: $mediaType, date: $date, explanation: $explanation, url: $url, hdurl: $hdurl)';
   }
 
   @override
@@ -230,8 +230,7 @@ class _$_ApodModel implements _ApodModel {
         (other.runtimeType == runtimeType &&
             other is _$_ApodModel &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.media_type, media_type) &&
+            const DeepCollectionEquality().equals(other.mediaType, mediaType) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
                 .equals(other.explanation, explanation) &&
@@ -244,7 +243,7 @@ class _$_ApodModel implements _ApodModel {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(media_type),
+      const DeepCollectionEquality().hash(mediaType),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(explanation),
       const DeepCollectionEquality().hash(url),
@@ -269,8 +268,8 @@ abstract class _ApodModel implements ApodModel {
       @JsonKey(name: 'title')
           required final String title,
       @HiveField(1)
-      @JsonKey(name: 'media_type')
-          required final String media_type,
+      @JsonKey(name: 'mediaType')
+          required final String? mediaType,
       @HiveField(2)
       @JsonKey(name: 'date')
           required final String date,
@@ -293,8 +292,8 @@ abstract class _ApodModel implements ApodModel {
   String get title;
   @override
   @HiveField(1)
-  @JsonKey(name: 'media_type')
-  String get media_type;
+  @JsonKey(name: 'mediaType')
+  String? get mediaType;
   @override
   @HiveField(2)
   @JsonKey(name: 'date')

@@ -26,7 +26,7 @@ class LoadingGridWidget extends StatelessWidget {
               baseColor: Colors.black12,
               highlightColor: Colors.white10,
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.amberAccent,
                 ),
               ),

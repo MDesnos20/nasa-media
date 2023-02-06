@@ -29,7 +29,7 @@ class ApodMediaListWidget extends StatelessWidget {
       body: RefreshIndicator(
         onRefresh: onRefresh,
         child: CustomScrollView(
-          controller: this.controller,
+          controller: controller,
           slivers: [
             SliverPadding(
               padding: const EdgeInsets.all(2.0),
@@ -74,7 +74,7 @@ class ApodMediaListWidget extends StatelessWidget {
                       baseColor: Colors.black12,
                       highlightColor: Colors.white10,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.amberAccent,
                         ),
                       ),

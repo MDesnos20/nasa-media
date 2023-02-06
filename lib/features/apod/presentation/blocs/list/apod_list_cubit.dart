@@ -8,32 +8,32 @@ part 'apod_list_cubit.freezed.dart';
 part 'apod_list_state.dart';
 
 class ApodListCubit extends Cubit<ApodListState> {
-  ApodListCubit({required this.apodMedia}) : super(ApodListState.loading());
+  ApodListCubit({required this.apodMedia}) : super(const ApodListState.loading());
 
   final GetApodMediaUseCase apodMedia;
   List<ApodEntity> apodMediaList = [];
   bool isFetching = false;
 
-  int _count = 18;
+  final int _count = 18;
 
   Future<void> getApodMedia(bool firstTime) async {
     if (firstTime == true) {
-      emit(ApodListState.loading());
-      if (this.apodMediaList.isEmpty == false) {
-        emit(ApodListState.loaded(apodMediaList: this.apodMediaList));
+      emit(const ApodListState.loading());
+      if (apodMediaList.isEmpty == false) {
+        emit(ApodListState.loaded(apodMediaList: apodMediaList));
       }
     }
 
     final result = await apodMedia(GetApodMediaUseCaseParams(count: _count));
-    this.isFetching = true;
+    isFetching = true;
     result.when(
       success: (apodMediaList) {
         this.apodMediaList = [...this.apodMediaList, ...apodMediaList];
         emit(ApodListState.loaded(apodMediaList: this.apodMediaList));
-        this.isFetching = false;
+        isFetching = false;
       },
       failure: (failure) {
-        emit(ApodListState.error());
+        emit(const ApodListState.error());
       },
     );
   }

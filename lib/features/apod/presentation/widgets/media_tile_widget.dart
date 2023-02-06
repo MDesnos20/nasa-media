@@ -13,7 +13,7 @@ class MediaTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      errorWidget: (context, url, error) => new Icon(Icons.error),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
       imageUrl: imageUrl,
       fit: BoxFit.cover,
       placeholder: (context, url) {
@@ -21,7 +21,7 @@ class MediaTileWidget extends StatelessWidget {
           baseColor: Colors.black12,
           highlightColor: Colors.white10,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.amberAccent,
             ),
           ),

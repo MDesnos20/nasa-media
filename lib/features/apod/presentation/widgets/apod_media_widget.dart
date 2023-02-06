@@ -7,6 +7,7 @@ import '../../domain/entities/apod_entity.dart';
 class ApodWidget extends StatelessWidget {
   const ApodWidget({
     required this.media,
+    super.key, 
   });
 
   final ApodEntity media;
@@ -14,22 +15,22 @@ class ApodWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
-          AppGap.regular(),
+          const AppGap.regular(),
           Center(
             child: CachedNetworkImage(
               imageUrl: '${media.hdurl}',
               fit: BoxFit.contain,
             ),
           ),
-          AppGap.regular(),
+          const AppGap.regular(),
           Text(media.title),
-          AppGap.regular(),
+          const AppGap.regular(),
           Text(media.date),
-          AppGap.regular(),
+          const AppGap.regular(),
           Text(media.explanation),
         ],
       ),

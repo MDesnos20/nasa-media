@@ -10,7 +10,7 @@ import '../widgets/apod_media_list_widget.dart';
 import 'apod_media_detail_page.dart';
 
 class ApodMediaListPage extends StatefulWidget {
-  ApodMediaListPage({super.key});
+  const ApodMediaListPage({super.key});
 
   @override
   State<ApodMediaListPage> createState() => ApodMediaListPageState();
@@ -37,7 +37,7 @@ class ApodMediaListPageState extends State<ApodMediaListPage> {
       builder: (context, state) {
         return state.when(
           loading: () {
-            return Center(child: LoadingGridWidget());
+            return const Center(child: LoadingGridWidget());
           },
           error: () => Center(
             child: Text(context.translate().error),
