@@ -26,15 +26,4 @@ class ApodCubit extends Cubit<ApodState> {
     );
   }
 
-  /*Future<void> downloadImage(String hdurl) async {
-    final taskId = await FlutterDownloader.enqueue(
-      url: 'https://apod.nasa.gov/apod/image/1801/snowpoles_brinkman_960.jpg',
-      headers: {}, // optional: header send with url (auth token etc)
-      savedDir: 'the path of directory where you want to save downloaded files',
-      showNotification:
-          true, // show download progress in status bar (for Android)
-      openFileFromNotification:
-          true, // click on notification to open downloaded file (for Android)
-    );
-  }*/
 }

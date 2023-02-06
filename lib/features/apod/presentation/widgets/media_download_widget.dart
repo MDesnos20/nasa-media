@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
@@ -26,7 +24,6 @@ class MediaDownloadWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('$hdurl, $showContent');
     if (hdurl != '' && showContent == true) {
       if (taskStatus.status == DownloadTaskStatus.undefined) {
         return FloatingActionButton(

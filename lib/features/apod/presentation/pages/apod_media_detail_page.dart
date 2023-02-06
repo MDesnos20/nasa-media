@@ -11,9 +11,9 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../core/presentation/widgets/top_bar.dart';
 import '../../domain/entities/apod_entity.dart';
+import '../../domain/entities/download_task_info_entity.dart';
 import '../widgets/apod_media_widget.dart';
 import '../widgets/media_download_widget.dart';
-import '../../domain/entities/download_task_info_entity.dart';
 
 
 class ApodMediaDetailPage extends StatefulWidget {
@@ -47,20 +47,17 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
     _showContent = false;
     _permissionReady = false;
     _saveInPublicStorage = false;
-    print("initState");
     _prepare();
 
 
   }
 
   void _bindBackgroundIsolate() {
-    print('_bindBackgroundIsolate');
 
     final isSuccess = IsolateNameServer.registerPortWithName(
       _port.sendPort,
       'downloader_send_port',
     );
-    print('isSuccess');
     if (!isSuccess) {
       _unbindBackgroundIsolate();
       _bindBackgroundIsolate();
@@ -71,11 +68,6 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
       final taskId = (data as List<dynamic>)[0] as String;
       final status = data[1] as DownloadTaskStatus;
       final progress = data[2] as int;
-
-      print(
-        'Callback on UI isolate: '
-        'task ($taskId) is in status ($status) and process ($progress)',
-      );
 
       setState(() {
         task = DownloadTaskInfoEntity(progress: progress, status: status, taskId: taskId); 
@@ -98,11 +90,6 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
     DownloadTaskStatus status,
     int progress,
   ) {
-    print(
-      'Callback on background isolate: '
-      'task ($id) is in status ($status) and process ($progress)',
-    );
-
     IsolateNameServer.lookupPortByName('downloader_send_port')
         ?.send([id, status, progress]);
   }
@@ -115,7 +102,6 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
     final tasks = await FlutterDownloader.loadTasks();
 
     if (tasks == null) {
-      print('No tasks were retrieved from the database.');
       return;
     }
 
@@ -125,7 +111,6 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
     }
 
     setState(() {
-      print('showcontent $_showContent');
       _showContent = true;
     });
   }
@@ -140,9 +125,7 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
     if (Platform.isAndroid) {
       try {
         externalStorageDirPath = await AndroidPathProvider.downloadsPath;
-      } catch (err, st) {
-        print('failed to get downloads path: $err, $st');
-
+      } catch (err) {
         final directory = await getExternalStorageDirectory();
         externalStorageDirPath = directory?.path;
       }
