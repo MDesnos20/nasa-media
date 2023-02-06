@@ -24,7 +24,7 @@ mixin _$ApodModel {
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
   @HiveField(1)
-  @JsonKey(name: 'mediaType')
+  @JsonKey(name: 'media_type')
   String? get mediaType => throw _privateConstructorUsedError;
   @HiveField(2)
   @JsonKey(name: 'date')
@@ -51,7 +51,7 @@ abstract class $ApodModelCopyWith<$Res> {
       _$ApodModelCopyWithImpl<$Res>;
   $Res call(
       {@HiveField(0) @JsonKey(name: 'title') String title,
-      @HiveField(1) @JsonKey(name: 'mediaType') String? mediaType,
+      @HiveField(1) @JsonKey(name: 'media_type') String? mediaType,
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
       @HiveField(4) @JsonKey(name: 'url', nullable: true) String? url,
@@ -112,7 +112,7 @@ abstract class _$$_ApodModelCopyWith<$Res> implements $ApodModelCopyWith<$Res> {
   @override
   $Res call(
       {@HiveField(0) @JsonKey(name: 'title') String title,
-      @HiveField(1) @JsonKey(name: 'mediaType') String? mediaType,
+      @HiveField(1) @JsonKey(name: 'media_type') String? mediaType,
       @HiveField(2) @JsonKey(name: 'date') String date,
       @HiveField(3) @JsonKey(name: 'explanation') String explanation,
       @HiveField(4) @JsonKey(name: 'url', nullable: true) String? url,
@@ -176,7 +176,7 @@ class _$_ApodModel implements _ApodModel {
       @JsonKey(name: 'title')
           required this.title,
       @HiveField(1)
-      @JsonKey(name: 'mediaType')
+      @JsonKey(name: 'media_type')
           required this.mediaType,
       @HiveField(2)
       @JsonKey(name: 'date')
@@ -200,7 +200,7 @@ class _$_ApodModel implements _ApodModel {
   final String title;
   @override
   @HiveField(1)
-  @JsonKey(name: 'mediaType')
+  @JsonKey(name: 'media_type')
   final String? mediaType;
   @override
   @HiveField(2)
@@ -268,7 +268,7 @@ abstract class _ApodModel implements ApodModel {
       @JsonKey(name: 'title')
           required final String title,
       @HiveField(1)
-      @JsonKey(name: 'mediaType')
+      @JsonKey(name: 'media_type')
           required final String? mediaType,
       @HiveField(2)
       @JsonKey(name: 'date')
@@ -292,7 +292,7 @@ abstract class _ApodModel implements ApodModel {
   String get title;
   @override
   @HiveField(1)
-  @JsonKey(name: 'mediaType')
+  @JsonKey(name: 'media_type')
   String? get mediaType;
   @override
   @HiveField(2)

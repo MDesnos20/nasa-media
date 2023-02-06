@@ -61,7 +61,7 @@ class ApodModelAdapter extends TypeAdapter<_$_ApodModel> {
 
 _$_ApodModel _$$_ApodModelFromJson(Map<String, dynamic> json) => _$_ApodModel(
       title: json['title'] as String,
-      mediaType: json['mediaType'] as String?,
+      mediaType: json['media_type'] as String?,
       date: json['date'] as String,
       explanation: json['explanation'] as String,
       url: json['url'] as String?,
@@ -71,7 +71,7 @@ _$_ApodModel _$$_ApodModelFromJson(Map<String, dynamic> json) => _$_ApodModel(
 Map<String, dynamic> _$$_ApodModelToJson(_$_ApodModel instance) =>
     <String, dynamic>{
       'title': instance.title,
-      'mediaType': instance.mediaType,
+      'media_type': instance.mediaType,
       'date': instance.date,
       'explanation': instance.explanation,
       'url': instance.url,

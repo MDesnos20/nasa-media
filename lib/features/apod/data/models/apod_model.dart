@@ -11,7 +11,7 @@ class ApodModel with _$ApodModel {
   @HiveType(typeId: 0)
   const factory ApodModel({
     @HiveField(0) @JsonKey(name: 'title') required String title,
-    @HiveField(1) @JsonKey(name: 'mediaType') required String? mediaType,
+    @HiveField(1) @JsonKey(name: 'media_type') required String? mediaType,
     @HiveField(2) @JsonKey(name: 'date') required String date,
     @HiveField(3) @JsonKey(name: 'explanation') required String explanation,
     @HiveField(4) @JsonKey(name: 'url', nullable: true) required String? url,
