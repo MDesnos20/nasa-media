@@ -8,6 +8,8 @@ import 'core/presentation/widgets/banner_wrapper.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/theme.dart';
 import 'di/injection_container.dart' as di;
+import 'package:flutter_downloader/flutter_downloader.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +18,12 @@ Future<void> main() async {
   await di.init();
 
   await GlobalConfiguration().loadFromAsset('app_settings');
+
+  await FlutterDownloader.initialize(
+    debug: true, // optional: set to false to disable printing logs to console (default: true)
+    ignoreSsl: true // option: set to false to disable working with http links (default: false)
+  );
+
   runApp(const SocleApp());
 }
 
