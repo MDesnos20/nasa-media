@@ -53,7 +53,7 @@ class _SocleAppState extends State<SocleApp> {
         ],
         child: MaterialApp(
           title: 'Socle Niji',
-          theme: SocleTheme(),
+          theme: socleTheme(),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           initialRoute: _appRouter.initialRoute,

@@ -8,12 +8,12 @@ part 'apod_cubit.freezed.dart';
 part 'apod_state.dart';
 
 class ApodCubit extends Cubit<ApodState> {
-  ApodCubit({required this.apodMediaUseCase}) : super(ApodState.loading());
+  ApodCubit({required this.apodMediaUseCase}) : super(const ApodState.loading());
 
   final GetApodMediaUseCase apodMediaUseCase;
 
   Future<void> getApod(int count) async {
-    emit(ApodState.loading());
+    emit(const ApodState.loading());
     final result = await apodMediaUseCase(GetApodMediaUseCaseParams(count: count));
 
     result.when(
@@ -21,7 +21,7 @@ class ApodCubit extends Cubit<ApodState> {
         emit(ApodState.loaded(apod: apod));
       },
       failure: (failure) {
-        emit(ApodState.error());
+        emit(const ApodState.error());
       },
     );
   }

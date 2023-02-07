@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ApodEntity {
   String get title => throw _privateConstructorUsedError;
-  String get media_type => throw _privateConstructorUsedError;
+  String? get mediaType => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get explanation => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $ApodEntityCopyWith<$Res> {
       _$ApodEntityCopyWithImpl<$Res>;
   $Res call(
       {String title,
-      String media_type,
+      String? mediaType,
       String date,
       String explanation,
       String? url,
@@ -53,7 +53,7 @@ class _$ApodEntityCopyWithImpl<$Res> implements $ApodEntityCopyWith<$Res> {
   @override
   $Res call({
     Object? title = freezed,
-    Object? media_type = freezed,
+    Object? mediaType = freezed,
     Object? date = freezed,
     Object? explanation = freezed,
     Object? url = freezed,
@@ -64,10 +64,10 @@ class _$ApodEntityCopyWithImpl<$Res> implements $ApodEntityCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      media_type: media_type == freezed
-          ? _value.media_type
-          : media_type // ignore: cast_nullable_to_non_nullable
-              as String,
+      mediaType: mediaType == freezed
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -97,7 +97,7 @@ abstract class _$$_ApodEntityCopyWith<$Res>
   @override
   $Res call(
       {String title,
-      String media_type,
+      String? mediaType,
       String date,
       String explanation,
       String? url,
@@ -117,7 +117,7 @@ class __$$_ApodEntityCopyWithImpl<$Res> extends _$ApodEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object? title = freezed,
-    Object? media_type = freezed,
+    Object? mediaType = freezed,
     Object? date = freezed,
     Object? explanation = freezed,
     Object? url = freezed,
@@ -128,10 +128,10 @@ class __$$_ApodEntityCopyWithImpl<$Res> extends _$ApodEntityCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      media_type: media_type == freezed
-          ? _value.media_type
-          : media_type // ignore: cast_nullable_to_non_nullable
-              as String,
+      mediaType: mediaType == freezed
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as String?,
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ class __$$_ApodEntityCopyWithImpl<$Res> extends _$ApodEntityCopyWithImpl<$Res>
 class _$_ApodEntity implements _ApodEntity {
   const _$_ApodEntity(
       {required this.title,
-      required this.media_type,
+      required this.mediaType,
       required this.date,
       required this.explanation,
       required this.url,
@@ -166,7 +166,7 @@ class _$_ApodEntity implements _ApodEntity {
   @override
   final String title;
   @override
-  final String media_type;
+  final String? mediaType;
   @override
   final String date;
   @override
@@ -178,7 +178,7 @@ class _$_ApodEntity implements _ApodEntity {
 
   @override
   String toString() {
-    return 'ApodEntity(title: $title, media_type: $media_type, date: $date, explanation: $explanation, url: $url, hdurl: $hdurl)';
+    return 'ApodEntity(title: $title, mediaType: $mediaType, date: $date, explanation: $explanation, url: $url, hdurl: $hdurl)';
   }
 
   @override
@@ -187,8 +187,7 @@ class _$_ApodEntity implements _ApodEntity {
         (other.runtimeType == runtimeType &&
             other is _$_ApodEntity &&
             const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.media_type, media_type) &&
+            const DeepCollectionEquality().equals(other.mediaType, mediaType) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality()
                 .equals(other.explanation, explanation) &&
@@ -200,7 +199,7 @@ class _$_ApodEntity implements _ApodEntity {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(media_type),
+      const DeepCollectionEquality().hash(mediaType),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(explanation),
       const DeepCollectionEquality().hash(url),
@@ -215,7 +214,7 @@ class _$_ApodEntity implements _ApodEntity {
 abstract class _ApodEntity implements ApodEntity {
   const factory _ApodEntity(
       {required final String title,
-      required final String media_type,
+      required final String? mediaType,
       required final String date,
       required final String explanation,
       required final String? url,
@@ -224,7 +223,7 @@ abstract class _ApodEntity implements ApodEntity {
   @override
   String get title;
   @override
-  String get media_type;
+  String? get mediaType;
   @override
   String get date;
   @override

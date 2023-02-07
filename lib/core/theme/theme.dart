@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ThemeData SocleTheme() {
+ThemeData socleTheme() {
   return ThemeData(
     fontFamily: 'Montserrat',
   );

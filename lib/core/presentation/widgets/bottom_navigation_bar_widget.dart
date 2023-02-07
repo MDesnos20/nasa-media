@@ -9,17 +9,17 @@ class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({Key? key}) : super(key: key);
 
   @override
-  _BottomNavigationBarWidgetState createState() => _BottomNavigationBarWidgetState();
+  BottomNavigationBarWidgetState createState() => BottomNavigationBarWidgetState();
 }
 
-class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
+class BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavigationCubit, NavigationState>(
       builder: (context, state) {
         return BottomNavigationBar(
           currentIndex: state.index,
-          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           selectedItemColor: AppColors.cararra,
           items: [
             BottomNavigationBarItem(
@@ -29,7 +29,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
             ),
             BottomNavigationBarItem(
               activeIcon: _icon(Icons.grid_view, AppColors.cararra),
-              icon: _icon(Icons.grid_view, Color.fromARGB(255, 202, 204, 204)),
+              icon: _icon(Icons.grid_view, const Color.fromARGB(255, 202, 204, 204)),
               label: context.translate().bottomNavBarMovies,
             ),
             BottomNavigationBarItem(

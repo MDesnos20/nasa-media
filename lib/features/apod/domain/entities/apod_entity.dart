@@ -6,7 +6,7 @@ part 'apod_entity.freezed.dart';
 class ApodEntity with _$ApodEntity {
   const factory ApodEntity({
     required String title,
-    required String media_type,
+    required String? mediaType,
     required String date,
     required String explanation,
     required String? url,

@@ -11,7 +11,7 @@ class AppStyles {
 }
 
 class AppGradients {
-  static LinearGradient gradient = LinearGradient(
+  static LinearGradient gradient = const LinearGradient(
     colors: [Colors.transparent, AppColors.valencia],
     stops: [0, 1],
     begin: Alignment.topCenter,

@@ -11,7 +11,7 @@ class ApodModel with _$ApodModel {
   @HiveType(typeId: 0)
   const factory ApodModel({
     @HiveField(0) @JsonKey(name: 'title') required String title,
-    @HiveField(1) @JsonKey(name: 'media_type') required String media_type,
+    @HiveField(1) @JsonKey(name: 'media_type') required String? mediaType,
     @HiveField(2) @JsonKey(name: 'date') required String date,
     @HiveField(3) @JsonKey(name: 'explanation') required String explanation,
     @HiveField(4) @JsonKey(name: 'url', nullable: true) required String? url,
@@ -23,7 +23,7 @@ class ApodModel with _$ApodModel {
   factory ApodModel.fromDomain(ApodEntity entity) {
     return ApodModel(
       title: entity.title,
-      media_type: entity.media_type,
+      mediaType: entity.mediaType,
       date: entity.date,
       explanation: entity.explanation,
       url: entity.url,
@@ -37,7 +37,7 @@ List<ApodEntity>getApodMediaList(dynamic json) {
   json.forEach((dynamic element) {
     apodMediaList.add(_$ApodModelFromJson(element).toDomain());
   });
-  apodMediaList..removeWhere((element) => element.media_type != 'image');
+  apodMediaList.removeWhere((element) => element.mediaType != 'image');
   return apodMediaList;
 }
 
@@ -45,7 +45,7 @@ extension ApodModelX on ApodModel {
   ApodEntity toDomain() {
     return ApodEntity(
       title: title,
-      media_type: media_type,
+      mediaType: mediaType,
       date: date,
       explanation: explanation,
       url: url,
