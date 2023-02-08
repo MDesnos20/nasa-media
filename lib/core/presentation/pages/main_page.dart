@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../di/injection_container.dart';
+import '../../../features/apod/presentation/blocs/download/download_cubit.dart';
 import '../../../features/apod/presentation/blocs/list/apod_list_cubit.dart';
 import '../../../features/apod/presentation/pages/apod_media_list_page.dart';
 import '../../../features/home/presentation/pages/home_page.dart';
@@ -29,6 +30,7 @@ class MainPage extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => sl<ApodListCubit>()),
+          BlocProvider(create: (_) => sl<DownloadCubit>()),
         ],
         child: BlocBuilder<NavigationCubit, NavigationState>(
           builder: (context, state) {
