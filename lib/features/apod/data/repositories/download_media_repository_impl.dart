@@ -12,8 +12,6 @@ class DownloadMediaRepositoryImpl implements DownloadMediaRepository {
 
   @override
   Future<bool> initDownloader() async {
-
-    bool ready;
     localDataSource.bindBackgroundIsolate();
     await localDataSource.prepare();
     return localDataSource.getShowContent();

@@ -1,16 +1,14 @@
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 
+import '../../../../core/presentation/widgets/custom_top_bar_widget.dart';
 import '../../../../di/injection_container.dart';
 import '../../domain/entities/apod_entity.dart';
 import '../../domain/entities/download_task_info_entity.dart';
 import '../blocs/download/download_cubit.dart';
 import '../widgets/apod_media_widget.dart';
 import '../widgets/media_download_widget.dart';
-import '../../../../core/presentation/widgets/custom_top_bar_widget.dart';
 
 
 class ApodMediaDetailPage extends StatefulWidget {
