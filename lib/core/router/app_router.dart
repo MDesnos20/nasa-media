@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../di/injection_container.dart';
 import '../../features/apod/presentation/blocs/detail/apod_cubit.dart';
+import '../../features/apod/presentation/blocs/download/download_cubit.dart';
 import '../../features/apod/presentation/pages/apod_media_detail_page.dart';
 import '../../features/splash/presentation/pages/splashscreen_page.dart';
 import '../constants/route_list.dart';
@@ -33,12 +34,11 @@ class AppRouter {
           builder: (_) => MultiBlocProvider(
             providers: [
               BlocProvider(create: (_) => sl<ApodCubit>()),
+              BlocProvider(create: (_) => sl<DownloadCubit>())
             ],
             child: ApodMediaDetailPage(apodDetailPageArgs: args as ApodDetailPageArgs),
           ),
         );
-      case RouteList.apodDetail:
-        return MaterialPageRoute(builder: (_) => ApodMediaDetailPage(apodDetailPageArgs: args as ApodDetailPageArgs));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

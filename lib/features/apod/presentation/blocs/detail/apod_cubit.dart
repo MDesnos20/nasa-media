@@ -25,4 +25,5 @@ class ApodCubit extends Cubit<ApodState> {
       },
     );
   }
+
 }

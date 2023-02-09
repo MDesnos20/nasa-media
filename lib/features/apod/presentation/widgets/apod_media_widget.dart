@@ -15,7 +15,7 @@ class ApodWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         children: [
@@ -32,6 +32,7 @@ class ApodWidget extends StatelessWidget {
           Text(media.date),
           const AppGap.regular(),
           Text(media.explanation),
+          const AppGap.regular(),
         ],
       ),
     );

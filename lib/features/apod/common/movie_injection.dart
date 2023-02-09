@@ -6,7 +6,9 @@ void _featureMovie() {
   sl
     // DataSources
     ..injectDataSource<ApodRemoteDataSource>(() => ApodRemoteDataSourceImpl(dio: dio))
+    ..injectDataSource<DownloadTaskDataSource>(DownloadTaskDataSourceImpl.new)
 
+//DownloadTaskDataSource
     // Repositories
     ..injectRepository<ApodRepository>(
       () => ApodRepositoryImpl(
@@ -15,12 +17,29 @@ void _featureMovie() {
       ),
     )
 
+    ..injectRepository<DownloadMediaRepository>(
+      () => DownloadMediaRepositoryImpl(
+        localDataSource: sl(),
+      ),
+    )
+
     // UseCases
     ..injectUseCase(() => GetApodMediaUseCase(sl()))
+    ..injectUseCase(() => InitDownloaderUseCase(sl()))
+    ..injectUseCase(() => GetDownloadReadyUseCase(sl()))
+    ..injectUseCase(() => DisposeDownloadUseCase(sl()))
+    ..injectUseCase(() => GetReceiverPortUseCase(sl()))
+    ..injectUseCase(() => GetLocalPathUseCase(sl()))
 
     // Blocs
-    ..injectBloc(() => ApodCubit(apodMediaUseCase: sl(), ))
-    ..injectBloc(() => ApodListCubit(apodMedia: sl(), ));
+    ..injectBloc(() => ApodListCubit(apodMedia: sl(), ))
+    ..injectBloc(() => DownloadCubit(
+      initDownloaderUseCase: sl(),
+      getDownloadReadyUseCase: sl(),
+      disposeDownloadUseCase: sl(),
+      getReceiverPortUseCase: sl(),
+      getLocalPathUseCase: sl(),
+    ),);
 
   // Interfaces
 }
