@@ -32,6 +32,7 @@ class ApodWidget extends StatelessWidget {
           Text(media.date),
           const AppGap.regular(),
           Text(media.explanation),
+          const AppGap.regular(),
         ],
       ),
     );
