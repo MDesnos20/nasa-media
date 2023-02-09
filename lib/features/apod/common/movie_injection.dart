@@ -6,7 +6,7 @@ void _featureMovie() {
   sl
     // DataSources
     ..injectDataSource<ApodRemoteDataSource>(() => ApodRemoteDataSourceImpl(dio: dio))
-    ..injectDataSource<DownloadTaskDataSource>(() => DownloadTaskDataSourceImpl())
+    ..injectDataSource<DownloadTaskDataSource>(DownloadTaskDataSourceImpl.new)
 
 //DownloadTaskDataSource
     // Repositories

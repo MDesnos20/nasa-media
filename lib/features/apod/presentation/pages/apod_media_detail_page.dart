@@ -26,7 +26,6 @@ class ApodMediaDetailPage extends StatefulWidget {
 }
 
 class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
-  DownloadTaskInfoEntity task = DownloadTaskInfoEntity(progress: 0, status: DownloadTaskStatus.undefined, taskId: '');
 
   @override
   void initState() {
@@ -78,14 +77,13 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
                   downloadMedia: _requestDownload,
                   openDownloadedFile: _openDownloadedFile,
                   showContent: true,
-                  taskStatus: task,
+                  taskStatus: const DownloadTaskInfoEntity(progress: 0, status: DownloadTaskStatus.undefined, taskId: ''),
                 );
               },
               downloaded: () {
                 return const SizedBox();
               },
               downloading: (task) {
-                print('downloading');
                 return MediaDownloadWidget(
                   hdurl: widget.apodDetailPageArgs.apodDetail.hdurl ?? '',
                   downloadMedia: _requestDownload,

@@ -1,10 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/theme/spacing.dart';
 import '../../domain/entities/apod_entity.dart';
-import '../blocs/download/download_cubit.dart';
 
 class ApodWidget extends StatelessWidget {
   const ApodWidget({
@@ -34,11 +32,7 @@ class ApodWidget extends StatelessWidget {
           Text(media.date),
           const AppGap.regular(),
           Text(media.explanation),
-          AppGap.regular(),
-          /*ElevatedButton(onPressed: () {
-            BlocProvider.of<DownloadCubit>(context).disposePort();
-            Navigator.pop(context);
-          }, child: Text('Foobar'))*/
+          const AppGap.regular(),
         ],
       ),
     );

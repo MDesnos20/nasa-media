@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../features/apod/presentation/blocs/download/download_cubit.dart';
 
 class CustomTopBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomTopBar({

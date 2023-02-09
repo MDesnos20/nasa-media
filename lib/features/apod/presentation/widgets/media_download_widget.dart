@@ -27,28 +27,29 @@ class MediaDownloadWidget extends StatelessWidget {
     if (hdurl != '' && showContent == true) {
       if (taskStatus.status == DownloadTaskStatus.undefined) {
         return FloatingActionButton(
-          backgroundColor: Color(0xFF0B3D91),
+          backgroundColor: const Color(0xFF0B3D91),
           foregroundColor: Colors.white,
           onPressed: () => downloadMedia(
-              this.hdurl,),
-          child: Icon(Icons.download),
+              hdurl,),
           tooltip: 'Download',
+          child: const Icon(Icons.download),
         );
       } else if (taskStatus.status == DownloadTaskStatus.running) {
         return FloatingActionButton(
-          backgroundColor: Color(0xFF0B3D91),
+          backgroundColor: const Color(0xFF0B3D91),
           foregroundColor: Colors.white,
           onPressed: () => {},
-          child: Center(child: Text('${taskStatus.progress} %')),
           tooltip: 'Running',
+          child: Center(child: Text('${taskStatus.progress} %')),
         );
       } else if (taskStatus.status == DownloadTaskStatus.complete) {
         return FloatingActionButton(
-          backgroundColor: Color(0xFF0B3D91),
+          backgroundColor: const Color(0xFF0B3D91),
           foregroundColor: Colors.white,
           onPressed: () async {
             final success = await openDownloadedFile(taskStatus.taskId);
             if (!success) {
+              // ignore: use_build_context_synchronously
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Cannot open this file'),
@@ -56,14 +57,15 @@ class MediaDownloadWidget extends StatelessWidget {
               );
             }
           },
-          child: Icon(Icons.download_done),
           tooltip: 'Complete',
+          child: const Icon(Icons.download_done),
+
         );
       } else {
-        return SizedBox();
+        return const SizedBox();
       }
     } else {
-      return SizedBox();
+      return const SizedBox();
     }
 
   }

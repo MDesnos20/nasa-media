@@ -19,7 +19,7 @@ class DownloadCubit extends Cubit<DownloadState> {
     required this.initDownloaderUseCase,
     required this.getDownloadReadyUseCase,
     required this.disposeDownloadUseCase,
-    required this.getReceiverPortUseCase
+    required this.getReceiverPortUseCase,
   }) : super(const DownloadState.loading());
 
   final InitDownloaderUseCase initDownloaderUseCase;
