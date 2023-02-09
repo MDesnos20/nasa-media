@@ -35,10 +35,10 @@ class ApodWidget extends StatelessWidget {
           const AppGap.regular(),
           Text(media.explanation),
           AppGap.regular(),
-          ElevatedButton(onPressed: () {
+          /*ElevatedButton(onPressed: () {
             BlocProvider.of<DownloadCubit>(context).disposePort();
             Navigator.pop(context);
-          }, child: Text('Foobar'))
+          }, child: Text('Foobar'))*/
         ],
       ),
     );

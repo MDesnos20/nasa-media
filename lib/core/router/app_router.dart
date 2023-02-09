@@ -39,15 +39,6 @@ class AppRouter {
             child: ApodMediaDetailPage(apodDetailPageArgs: args as ApodDetailPageArgs),
           ),
         );
-      case RouteList.apodDetail:
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider(create: (_) => sl<DownloadCubit>())
-            ],
-            child: ApodMediaDetailPage(apodDetailPageArgs: args as ApodDetailPageArgs)
-          ),
-        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

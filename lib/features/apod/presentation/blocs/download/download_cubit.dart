@@ -30,24 +30,20 @@ class DownloadCubit extends Cubit<DownloadState> {
 
   Future<void> initDownloader() async {
     final result = await initDownloaderUseCase();
-    switch (result) {
-      case true:
-        initLisning();
-        emit(const DownloadState.readyToDownload());
-        break;
-      default:
-        emit(const DownloadState.error());
-        break;
+    if (result) {
+      initListening();
+      emit(const DownloadState.readyToDownload());
+    } else {
+      emit(const DownloadState.error());
     }
   }
 
-  void initLisning() {
+  void initListening() {
     getReceiverPortUseCase()
       .listen((dynamic data) {
         final taskId = (data as List<dynamic>)[0] as String;
         final status = data[1] as DownloadTaskStatus;
         final progress = data[2] as int;
-        DownloadTaskInfoEntity(progress: progress, status: status, taskId: taskId);
         emit(DownloadState.downloading(DownloadTaskInfoEntity(progress: progress, status: status, taskId: taskId)));
       });
   }
