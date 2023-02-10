@@ -7,7 +7,7 @@ import Foundation
 
 import connectivity_plus_macos
 import device_info_plus
-import path_provider_foundation
+import path_provider_macos
 import sqflite
 import url_launcher_macos
 

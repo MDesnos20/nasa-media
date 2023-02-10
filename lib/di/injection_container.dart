@@ -13,17 +13,18 @@ import '../features/apod/data/repositories/apod_repository_impl.dart';
 import '../features/apod/data/repositories/download_media_repository_impl.dart';
 import '../features/apod/domain/repositories/apod_repository.dart';
 import '../features/apod/domain/repositories/download_media_repository.dart';
-import '../features/apod/domain/usecases/dispose_download_usecase.dart';
+import '../features/apod/domain/usecases/download_file/dispose_download_usecase.dart';
+import '../features/apod/domain/usecases/download_file/get_local_path_usecase.dart';
+import '../features/apod/domain/usecases/download_file/get_receive_port_usecase.dart';
+import '../features/apod/domain/usecases/download_file/init_download_usecase.dart';
+import '../features/apod/domain/usecases/download_file/open_downloaded_file_usecase.dart';
+import '../features/apod/domain/usecases/download_file/request_download_usecase.dart';
 import '../features/apod/domain/usecases/get_apod_media_usecase.dart';
-import '../features/apod/domain/usecases/get_download_ready_usecase.dart';
-import '../features/apod/domain/usecases/get_local_path_usecase.dart';
-import '../features/apod/domain/usecases/get_receive_port_usecase.dart';
-import '../features/apod/domain/usecases/init_download_usecase.dart';
 import '../features/apod/presentation/blocs/download/download_cubit.dart';
 import '../features/apod/presentation/blocs/list/apod_list_cubit.dart';
 import 'di_ext.dart';
 
-part '../features/apod/common/movie_injection.dart';
+part '../features/apod/common/nasa_injection.dart';
 
 final GetIt sl = GetIt.instance;
 final Dio dio = Dio();
@@ -34,7 +35,7 @@ Future<void> init() async {
   hive.init(docDir.path);
 
   _core();
-  _featureMovie();
+  _featureNasa();
 }
 
 void _core() {

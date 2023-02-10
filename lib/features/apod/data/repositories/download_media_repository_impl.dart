@@ -33,8 +33,18 @@ class DownloadMediaRepositoryImpl implements DownloadMediaRepository {
   }
   
   @override
-  void disposeDownloadUseCase() {
+  void disposeDownload() {
     return localDataSource.unbindBackgroundIsolate();
+  }
+
+  @override
+  void requestDownload(String hdurl) {
+    return localDataSource.requestDownload(hdurl);
+  }
+
+  @override
+  Future<bool> openDownloadedFile(String taskId) {
+    return localDataSource.openDownloadedFile(taskId);
   }
 
 }

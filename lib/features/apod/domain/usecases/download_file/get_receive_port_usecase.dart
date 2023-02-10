@@ -1,6 +1,6 @@
 import 'dart:isolate';
 
-import '../repositories/download_media_repository.dart';
+import '../../repositories/download_media_repository.dart';
 
 class GetReceiverPortUseCase {
   GetReceiverPortUseCase(this.repository);

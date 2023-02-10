@@ -18,6 +18,8 @@ abstract class DownloadTaskDataSource {
   void unbindBackgroundIsolate();
   ReceivePort getReceivePort();
   String getLocalPath();
+  void requestDownload(String hdurl);
+  Future<bool> openDownloadedFile(String taskId);
 }
 
 class DownloadTaskDataSourceImpl implements DownloadTaskDataSource {
@@ -93,6 +95,21 @@ class DownloadTaskDataSourceImpl implements DownloadTaskDataSource {
   @override
   bool getShowContent() {
     return _showContent;
+  }
+
+  @override
+  Future<bool> openDownloadedFile(String taskId) {
+    return FlutterDownloader.open(taskId: taskId);
+  }
+
+  @override
+  void requestDownload(String hdurl) async {
+    await FlutterDownloader.enqueue(
+      url: hdurl,
+      headers: {'auth': 'test_for_sql_encoding'},
+      savedDir: _localPath,
+      saveInPublicStorage: true,
+    );
   }
 
   Future<void> _prepareSaveDir() async {

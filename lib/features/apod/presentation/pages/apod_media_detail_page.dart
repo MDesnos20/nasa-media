@@ -6,6 +6,9 @@ import '../../../../core/presentation/widgets/custom_top_bar_widget.dart';
 import '../../../../di/injection_container.dart';
 import '../../domain/entities/apod_entity.dart';
 import '../../domain/entities/download_task_info_entity.dart';
+import '../../domain/usecases/download_file/dispose_download_usecase.dart';
+import '../../domain/usecases/download_file/open_downloaded_file_usecase.dart';
+import '../../domain/usecases/download_file/request_download_usecase.dart';
 import '../blocs/download/download_cubit.dart';
 import '../widgets/apod_media_widget.dart';
 import '../widgets/media_download_widget.dart';
@@ -36,20 +39,15 @@ class ApodMediaDetailPageState extends State<ApodMediaDetailPage> {
   }
 
   Future<bool> _openDownloadedFile(String taskId) async {
-    return FlutterDownloader.open(taskId: taskId);
+    return sl<OpenDownloadedFileUseCase>()(taskId);
   }
 
   Future<void> _requestDownload(String url) async {
-    await FlutterDownloader.enqueue(
-      url: url,
-      headers: {'auth': 'test_for_sql_encoding'},
-      savedDir: context.read<DownloadCubit>().getLocalPath(),
-      saveInPublicStorage: true,
-    );
+    sl<RequestDownloadUseCase>()(url);
   }
 
   void _disposePort() {
-    BlocProvider.of<DownloadCubit>(context).disposePort();
+    sl<DisposeDownloadUseCase>();
     Navigator.pop(context);
   }
 

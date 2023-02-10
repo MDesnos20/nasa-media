@@ -19,7 +19,7 @@ void main() {
   );
 
   blocTest<NavigationCubit, NavigationState>(
-    'Navigate to "movies"',
+    'Navigate to "Apod"',
     build: () => navigationCubit,
     act: (cubit) => cubit.getNavBarItem(NavbarItem.apod),
     expect: () => [
