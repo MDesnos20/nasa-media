@@ -39,8 +39,6 @@ class MainPage extends StatelessWidget {
                 return const HomePage();
               case NavbarItem.apod:
                 return const ApodMediaListPage();
-              case NavbarItem.favorites:
-                return const HomePage();
               default:
                 // Should never be reached
                 return const SizedBox.shrink();
