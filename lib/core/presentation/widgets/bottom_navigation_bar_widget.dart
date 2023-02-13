@@ -30,7 +30,7 @@ class BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
             BottomNavigationBarItem(
               activeIcon: _icon(Icons.grid_view, AppColors.cararra),
               icon: _icon(Icons.grid_view, const Color.fromARGB(255, 202, 204, 204)),
-              label: context.translate().bottomNavBarMovies,
+              label: context.translate().bottomNavBarMedia,
             ),
             BottomNavigationBarItem(
               activeIcon: _icon(Icons.favorite, AppColors.cararra),

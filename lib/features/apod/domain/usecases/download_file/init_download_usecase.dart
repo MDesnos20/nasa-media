@@ -1,4 +1,4 @@
-import '../repositories/download_media_repository.dart';
+import '../../repositories/download_media_repository.dart';
 
 class InitDownloaderUseCase {
   InitDownloaderUseCase(this.repository);
