@@ -6,6 +6,7 @@ import '../../../../di/injection_container.dart';
 import '../../../features/apod/presentation/blocs/download/download_cubit.dart';
 import '../../../features/apod/presentation/blocs/list/apod_list_cubit.dart';
 import '../../../features/apod/presentation/pages/apod_media_list_page.dart';
+import '../../../features/home/presentation/blocs/google_map_cubit.dart';
 import '../../../features/home/presentation/pages/home_page.dart';
 import '../blocs/navigation/navigation_cubit.dart';
 import '../widgets/bottom_navigation_bar_widget.dart';
@@ -30,7 +31,7 @@ class MainPage extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => sl<ApodListCubit>()),
-          BlocProvider(create: (_) => sl<DownloadCubit>()),
+          BlocProvider(create: (_) => sl<GoogleMapCubit>()),
         ],
         child: BlocBuilder<NavigationCubit, NavigationState>(
           builder: (context, state) {
