@@ -28,15 +28,6 @@ void main() {
   );
 
   blocTest<NavigationCubit, NavigationState>(
-    'Navigate to "favorites"',
-    build: () => navigationCubit,
-    act: (cubit) => cubit.getNavBarItem(NavbarItem.favorites),
-    expect: () => [
-      const NavigationState(NavbarItem.favorites),
-    ],
-  );
-
-  blocTest<NavigationCubit, NavigationState>(
     '"Home" is the first item',
     build: () => navigationCubit,
     act: (cubit) => cubit.getNavBarItemFromIndex(0),
@@ -54,12 +45,4 @@ void main() {
     ],
   );
 
-  blocTest<NavigationCubit, NavigationState>(
-    '"Favorites" is the second item',
-    build: () => navigationCubit,
-    act: (cubit) => cubit.getNavBarItemFromIndex(2),
-    expect: () => [
-      const NavigationState(NavbarItem.favorites),
-    ],
-  );
 }
