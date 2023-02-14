@@ -26,9 +26,4 @@ class GoogleMapRepositoryImpl implements GoogleMapRepository {
     return googleMapDataSource.getCameraPosition();
   }
 
-  @override
-  void getCurrentPosition() async {
-    var pos = await geolocInfo.currentPosition;
-  }
-
 }

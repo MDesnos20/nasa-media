@@ -7,7 +7,7 @@ void _featureNasa() {
     // DataSources
     ..injectDataSource<ApodRemoteDataSource>(() => ApodRemoteDataSourceImpl(dio: dio))
     ..injectDataSource<DownloadTaskDataSource>(DownloadTaskDataSourceImpl.new)
-    ..injectDataSource<GoogleMapDatasSource>(() => GoogleMapDatasSourceImpl())
+    ..injectDataSource<GoogleMapDatasSource>(GoogleMapDatasSourceImpl.new)
 
 //DownloadTaskDataSource
     // Repositories
@@ -41,7 +41,6 @@ void _featureNasa() {
     ..injectUseCase(() => OpenDownloadedFileUseCase(sl()))
     ..injectUseCase(() => GetCameraPositionUseCase(sl()))
     ..injectUseCase(() => GetLocalisationUseCase(sl()))
-    ..injectUseCase(() => GetCurrentPositionUseCase(sl()))
 
     // Blocs
     ..injectBloc(() => GoogleMapCubit(

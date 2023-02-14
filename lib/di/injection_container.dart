@@ -27,7 +27,6 @@ import '../features/home/data/datasources/google_map_data_source.dart';
 import '../features/home/data/repositories/google_map_repository_impl.dart';
 import '../features/home/domain/repositories/google_map_repository.dart';
 import '../features/home/domain/usecases/get_camera_position.dart';
-import '../features/home/domain/usecases/get_current_position_usecase.dart';
 import '../features/home/domain/usecases/get_localisation_usecase.dart';
 import '../features/home/presentation/blocs/google_map_cubit.dart';
 import 'di_ext.dart';

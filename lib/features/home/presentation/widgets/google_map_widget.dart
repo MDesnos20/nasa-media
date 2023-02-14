@@ -81,7 +81,7 @@ class GoogleMapWidget extends StatelessWidget {
                                 submitValue();
                                 ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                    content: Text('Processing Data')),
+                                    content: Text('Processing Data'),),
                               );
                             }
                           },

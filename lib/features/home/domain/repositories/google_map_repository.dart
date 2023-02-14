@@ -5,5 +5,4 @@ import '../entities/localisation/localisation_entity.dart';
 abstract class GoogleMapRepository {
   LocalisationEntity getLocalisation();
   Future<CameraPosition> getCameraPosition();
-  void getCurrentPosition();
 }
