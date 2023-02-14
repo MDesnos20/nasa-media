@@ -4,6 +4,7 @@ import 'package:global_configuration/global_configuration.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../core/geoloc/geoloc.dart';
 import '../core/network/network_info.dart';
 import '../core/presentation/blocs/navigation/navigation_cubit.dart';
 import '../features/apod/data/datasources/apod_remote_data_source.dart';
@@ -22,6 +23,12 @@ import '../features/apod/domain/usecases/download_file/request_download_usecase.
 import '../features/apod/domain/usecases/get_apod_media_usecase.dart';
 import '../features/apod/presentation/blocs/download/download_cubit.dart';
 import '../features/apod/presentation/blocs/list/apod_list_cubit.dart';
+import '../features/home/data/datasources/google_map_data_source.dart';
+import '../features/home/data/repositories/google_map_repository_impl.dart';
+import '../features/home/domain/repositories/google_map_repository.dart';
+import '../features/home/domain/usecases/get_camera_position.dart';
+import '../features/home/domain/usecases/get_localisation_usecase.dart';
+import '../features/home/presentation/blocs/google_map_cubit.dart';
 import 'di_ext.dart';
 
 part '../features/apod/common/nasa_injection.dart';
@@ -51,5 +58,6 @@ void _core() {
 
     // Interfaces
     ..injectInterface(GlobalConfiguration.new)
-    ..injectInterface<NetworkInfo>(NetworkInfoImpl());
+    ..injectInterface<NetworkInfo>(NetworkInfoImpl())
+    ..injectInterface<GeolocInfo>(GeolocInfoImpl());
 }

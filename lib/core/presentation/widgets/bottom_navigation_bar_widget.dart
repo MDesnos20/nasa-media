@@ -32,11 +32,6 @@ class BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               icon: _icon(Icons.grid_view, const Color.fromARGB(255, 202, 204, 204)),
               label: context.translate().bottomNavBarMedia,
             ),
-            BottomNavigationBarItem(
-              activeIcon: _icon(Icons.favorite, AppColors.cararra),
-              icon: _icon(Icons.favorite, AppColors.edward),
-              label: context.translate().bottomNavBarFavorites,
-            ),
           ],
           onTap: context.read<NavigationCubit>().getNavBarItemFromIndex,
         );
