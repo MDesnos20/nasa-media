@@ -7,6 +7,7 @@ void _featureNasa() {
     // DataSources
     ..injectDataSource<ApodRemoteDataSource>(() => ApodRemoteDataSourceImpl(dio: dio))
     ..injectDataSource<DownloadTaskDataSource>(DownloadTaskDataSourceImpl.new)
+    ..injectDataSource<GoogleMapDatasSource>(() => GoogleMapDatasSourceImpl())
 
 //DownloadTaskDataSource
     // Repositories
@@ -23,6 +24,13 @@ void _featureNasa() {
       ),
     )
 
+    ..injectRepository<GoogleMapRepository>(
+      () => GoogleMapRepositoryImpl(
+        googleMapDataSource: sl(),
+        geolocInfo: sl(),
+      ),
+    )
+
     // UseCases
     ..injectUseCase(() => GetApodMediaUseCase(sl()))
     ..injectUseCase(() => InitDownloaderUseCase(sl()))
@@ -31,14 +39,23 @@ void _featureNasa() {
     ..injectUseCase(() => GetLocalPathUseCase(sl()))
     ..injectUseCase(() => RequestDownloadUseCase(sl()))
     ..injectUseCase(() => OpenDownloadedFileUseCase(sl()))
+    ..injectUseCase(() => GetCameraPositionUseCase(sl()))
+    ..injectUseCase(() => GetLocalisationUseCase(sl()))
+    ..injectUseCase(() => GetCurrentPositionUseCase(sl()))
 
     // Blocs
+    ..injectBloc(() => GoogleMapCubit(
+      getCameraPositionUseCase: sl(),
+      getLocalisationUseCase: sl(), 
+      getCurrentPositionUseCase: sl(),
+    ),)
     ..injectBloc(() => ApodListCubit(apodMedia: sl(), ))
     ..injectBloc(() => DownloadCubit(
       initDownloaderUseCase: sl(),
       disposeDownloadUseCase: sl(),
       getReceiverPortUseCase: sl(),
       getLocalPathUseCase: sl(),
+
     ),);
 
   // Interfaces
