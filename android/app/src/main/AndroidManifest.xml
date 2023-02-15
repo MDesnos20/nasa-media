@@ -21,7 +21,7 @@
                 android:resource="@xml/provider_paths"/>
         </provider>
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyCgHaWJj99XLvNPV2MXqqvf_SzzdP55bug"/>
+               android:value="API_KEY"/> <!-- TO CHANGE -->
 
         <activity
             android:name=".MainActivity"
